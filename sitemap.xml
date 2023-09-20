@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tmabraham.github.io/new_blog/about.html</loc>
-    <lastmod>2023-09-20T09:29:54.107Z</lastmod>
+    <loc>https://www.tanishq.ai/blog/about.html</loc>
+    <lastmod>2023-09-21T12:26:11.649Z</lastmod>
   </url>
   <url>
-    <loc>https://tmabraham.github.io/new_blog/index.html</loc>
-    <lastmod>2023-09-20T09:29:57.805Z</lastmod>
+    <loc>https://www.tanishq.ai/blog/index.html</loc>
+    <lastmod>2023-09-21T12:26:14.936Z</lastmod>
   </url>
   <url>
-    <loc>https://tmabraham.github.io/new_blog/posts/2021-03-02-noisy-imagenette.html</loc>
-    <lastmod>2023-09-20T09:29:59.403Z</lastmod>
+    <loc>https://www.tanishq.ai/blog/posts/2021-03-02-noisy-imagenette.html</loc>
+    <lastmod>2023-09-21T12:26:16.060Z</lastmod>
   </url>
   <url>
-    <loc>https://tmabraham.github.io/new_blog/posts/2021-07-14-GitHub-Copilot.html</loc>
-    <lastmod>2023-09-20T09:30:01.232Z</lastmod>
+    <loc>https://www.tanishq.ai/blog/posts/2021-07-14-GitHub-Copilot.html</loc>
+    <lastmod>2023-09-21T12:26:17.295Z</lastmod>
   </url>
   <url>
-    <loc>https://tmabraham.github.io/new_blog/posts/2021-11-16-gradio-huggingface.html</loc>
-    <lastmod>2023-09-20T09:30:03.703Z</lastmod>
+    <loc>https://www.tanishq.ai/blog/posts/2021-11-16-gradio-huggingface.html</loc>
+    <lastmod>2023-09-21T12:26:18.916Z</lastmod>
   </url>
   <url>
-    <loc>https://tmabraham.github.io/new_blog/posts/ddpo.html</loc>
-    <lastmod>2023-09-20T09:30:09.866Z</lastmod>
+    <loc>https://www.tanishq.ai/blog/posts/ddpo.html</loc>
+    <lastmod>2023-09-21T12:26:21.296Z</lastmod>
   </url>
 </urlset>

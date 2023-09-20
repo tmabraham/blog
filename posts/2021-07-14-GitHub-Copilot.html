@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Tanishq Mathew Abraham, Ph.D.">
 <meta name="dcterms.date" content="2021-07-14">
 <meta name="description" content="My thoughts and experience on the new GitHub Copilot tool.">
 
@@ -60,9 +61,21 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LRXD97FB1E"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-LRXD97FB1E', { 'anonymize_ip': true});
+</script>
 
 
 <link rel="stylesheet" href="../styles.css">
+<meta name="twitter:title" content="Dr.&nbsp;Tanishq Abraham’s blog - Coding with GitHub Copilot">
+<meta name="twitter:description" content="My thoughts and experience on the new GitHub Copilot tool.">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed">
@@ -125,6 +138,12 @@ ul.task-list li input[type="checkbox"] {
   
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Tanishq Mathew Abraham, Ph.D. </p>
+            </div>
+    </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
@@ -183,13 +202,13 @@ ul.task-list li input[type="checkbox"] {
 <p>Based on the demos that GitHub Copilot provided and favorable reviews from beta-testers, I was eager to give it a try, but I was also skeptical if it really was as life-changing as people claimed it was. To my surprise, it was much better than I expected.</p>
 <p>Here is a demo of GitHub Copilot in action (specifically for an ML-related task):</p>
 <center>
-{% twitter https://twitter.com/iScienceLuvr/status/1411074516411764743 %}
+{{ tweet iScienceLuvr 1411074516411764743 }}
 </center>
 <p>It’s clear that GitHub Copilot understands the general PyTorch training workflow, and understands intricacies like what are the appropriate augmentations for images (resizing, random crop, normalization, etc.), making sure to put model into evaluation mode and with <code>torch.no_grad()</code> during validation, etc. These are things that sometimes we may forget to do, so it’s great that GitHub Copilot can help prevent us from making these common mistakes.</p>
 <p>GitHub Copilot performs best when you provide it with comments describing what you are trying to do. It then uses the comments to generate a list of possible completions. This is highlighted in the example above, where I wrote a few lines about what I wanted to do (fine-tuning a pretrained ResNet50 on a custom dataset) and how I wanted to do that, and it mostly completed the rest of the code for me. I think this is great, because it changes the way we code. It now drives code development to focus on documentation, since writing good documentation often results in better Copilot suggestions.</p>
 <p>On a related note, some have hypothesized that GitHub Copilot might also lead to more test-driven development:</p>
 <center>
-{% twitter https://twitter.com/chrisalbon/status/1410827508283367424 %}
+<img src="image-4.png" class="img-fluid">
 </center>
 <p>I also want to point out that while most demos directly use GitHub Copilot in the editor, it’s also possible to open GitHub Copilot in a separate tab and have it generate and present multiple suggestions for you. Here’s an example:</p>
 <center>
@@ -494,6 +513,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
+</script>
+<script src="https://utteranc.es/client.js" repo="tmabraham/blog" issue-term="title" theme="github-light" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
 

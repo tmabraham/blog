@@ -1,1 +1,1 @@
-Sitemap: https://tmabraham.github.io/new_blog/sitemap.xml
+Sitemap: https://www.tanishq.ai/blog/sitemap.xml

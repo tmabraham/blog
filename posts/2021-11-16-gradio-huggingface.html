@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Tanishq Mathew Abraham, Ph.D.">
 <meta name="dcterms.date" content="2021-11-16">
 <meta name="description" content="Learn about easy ML app development">
 
@@ -123,15 +124,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LRXD97FB1E"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-LRXD97FB1E', { 'anonymize_ip': true});
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../styles.css">
+<meta name="twitter:title" content="Dr.&nbsp;Tanishq Abraham’s blog - Gradio + HuggingFace Spaces: A Tutorial">
+<meta name="twitter:description" content="Learn about easy ML app development">
+<meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -191,6 +204,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Tanishq Mathew Abraham, Ph.D. </p>
+            </div>
+    </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
@@ -206,7 +225,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#preliminaries-training-a-pet-classifier" id="toc-preliminaries-training-a-pet-classifier" class="nav-link" data-scroll-target="#preliminaries-training-a-pet-classifier">Preliminaries: Training a pet classifier</a></li>
+  <li><a href="#using-gradio" id="toc-using-gradio" class="nav-link" data-scroll-target="#using-gradio">Using Gradio</a></li>
+  <li><a href="#optional-customizing-our-gradio-app" id="toc-optional-customizing-our-gradio-app" class="nav-link" data-scroll-target="#optional-customizing-our-gradio-app">Optional: customizing our Gradio app</a></li>
+  <li><a href="#using-huggingface-spaces" id="toc-using-huggingface-spaces" class="nav-link" data-scroll-target="#using-huggingface-spaces">Using HuggingFace Spaces</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  <li><a href="#footnotes" id="toc-footnotes" class="nav-link" data-scroll-target="#footnotes">Footnotes</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -332,7 +365,7 @@ Running on public URL: https://10290.gradio.app
 This share link will expire in 72 hours. To get longer links, send an email to: support@gradio.app</code></pre>
 <p><img src="gradio_frame_1.png" class="img-fluid"></p>
 <pre><code>(&lt;Flask 'gradio.networking'&gt;, 'http://127.0.0.1:7860/', 'https://10290.gradio.app')</code></pre>
-<p>That’s it! The actual creation of the demo takes one line! {% fn 1 %}</p>
+<p>That’s it! The actual creation of the demo takes one line!<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>All Gradio interfaces are created by constructing a <code>gradio.Interface()</code> object. As you can see in this example, the <code>Interface</code> object takes in the function that we want to make an interface for (usually an ML model inference function), Gradio input components (the number of input components should match the number of parameters of the provided function), and Gradio output components (the number of output components should match the number of values returned by the provided function). Gradio provides components for various types of input and output types. This includes: images (upload, draw, or webcam), video, audio (upload or microphone), textboxes, dataframes, timeseries, generic files, and more! So you should be able to create a Gradio demo for virtually any type of ML task you can think of!</p>
 <p>After the <code>gradio.Interface()</code> object is defined, the interface is launched with the <code>launch</code> method.</p>
 </section>
@@ -426,7 +459,7 @@ git commit -m "update .gitattributes so git lfs will track .pkl files"</code></p
 git push</code></pre>
 <p><strong>Alternatively</strong>, the files can be uploaded via the Spaces UI. When you go to your Space, under “Files and versions”, there is an “Add files” button which you can use to upload your app files.</p>
 <p>After a few moments, during which the app is being built, our demo should show up on the HuggingFace Space.</p>
-<p>That’s it! In a few minutes, you trained a pet classifier model with fastai, made a demo interface with Gradio, and hosted it for free on a HuggingFace Space! You can try it out right below or you can try it out on HuggingFace Spaces <a href="https://huggingface.co/spaces/tmabraham/fastai_pet_classifier">here</a>. All the files described in this post located <a href="https://huggingface.co/spaces/tmabraham/fastai_pet_classifier/tree/main">here</a>). {% fn 2 %}</p>
+<p>That’s it! In a few minutes, you trained a pet classifier model with fastai, made a demo interface with Gradio, and hosted it for free on a HuggingFace Space! You can try it out right below or you can try it out on HuggingFace Spaces <a href="https://huggingface.co/spaces/tmabraham/fastai_pet_classifier">here</a>. All the files described in this post located <a href="https://huggingface.co/spaces/tmabraham/fastai_pet_classifier/tree/main">here</a>).<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <div class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display">
 
@@ -504,13 +537,18 @@ git push</code></pre>
 </section>
 <section id="footnotes" class="level1">
 <h1>Footnotes</h1>
-<p>{{ ‘One of the developers of Gradio created a simple Python module to easily create Gradio demos for fastai <code>Learner</code> objects. Check it out <a href="https://github.com/aliabd/fastgradio">here</a>. It currently only supports image-to-label interfaces but it could likely be expanded to other tasks fairly easily.’ | fndetail: 1 }}</p>
-<p>{{ ‘Recently, HuggingFace <a href="https://github.com/huggingface/huggingface_hub/pull/678">added</a> direct support for pushing and loading fastai models to the HuggingFace Hub with the <code>push_to_hub_fastai</code> and <code>from_pretrained_fastai</code> functions, respectively. This can make creating Spaces much easier, since you can just load it in the Space and not have to add it to the repository with <code>git-lfs</code>. See an example of this over <a href="https://huggingface.co/spaces/espejelomar/cat_or_dog_fastai/blob/main/app.py">here</a>.’ | fndetail: 2 }}</p>
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>One of the developers of Gradio created a simple Python module to easily create Gradio demos for fastai <code>Learner</code> objects. Check it out <a href="https://github.com/aliabd/fastgradio">here</a>. It currently only supports image-to-label interfaces but it could likely be expanded to other tasks fairly easily.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Recently, HuggingFace <a href="https://github.com/huggingface/huggingface_hub/pull/678">added</a> direct support for pushing and loading fastai models to the HuggingFace Hub with the <code>push_to_hub_fastai</code> and <code>from_pretrained_fastai</code> functions, respectively. This can make creating Spaces much easier, since you can just load it in the Space and not have to add it to the repository with <code>git-lfs</code>. See an example of this over <a href="https://huggingface.co/spaces/espejelomar/cat_or_dog_fastai/blob/main/app.py">here</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -643,6 +681,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
+</script>
+<script src="https://utteranc.es/client.js" repo="tmabraham/blog" issue-term="Gradio + HuggingFace Spaces" theme="github-light" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
 

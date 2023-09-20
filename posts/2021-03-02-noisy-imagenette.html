@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Tanishq Mathew Abraham, Ph.D.">
 <meta name="dcterms.date" content="2021-03-02">
 <meta name="description" content="A noisy version of fastai’s Imagenette/Imagewoof datasets">
 
@@ -123,15 +124,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LRXD97FB1E"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-LRXD97FB1E', { 'anonymize_ip': true});
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../styles.css">
+<meta name="twitter:title" content="Dr.&nbsp;Tanishq Abraham’s blog - Introducing Noisy Imagenette">
+<meta name="twitter:description" content="A noisy version of fastai's Imagenette/Imagewoof datasets">
+<meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -192,6 +205,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Tanishq Mathew Abraham, Ph.D. </p>
+            </div>
+    </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
@@ -207,7 +226,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#dataset-have-noisy-labels" id="toc-dataset-have-noisy-labels" class="nav-link" data-scroll-target="#dataset-have-noisy-labels">Dataset have noisy labels!</a></li>
+  <li><a href="#prior-research-on-noisy-labels" id="toc-prior-research-on-noisy-labels" class="nav-link" data-scroll-target="#prior-research-on-noisy-labels">Prior research on noisy labels</a></li>
+  <li><a href="#fastais-imagenette---a-dataset-for-rapid-prototyping" id="toc-fastais-imagenette---a-dataset-for-rapid-prototyping" class="nav-link" data-scroll-target="#fastais-imagenette---a-dataset-for-rapid-prototyping">fastai’s Imagenette - a dataset for rapid prototyping</a></li>
+  </ul></li>
+  <li><a href="#introducing-noisy-imagenette" id="toc-introducing-noisy-imagenette" class="nav-link" data-scroll-target="#introducing-noisy-imagenette">Introducing Noisy Imagenette</a></li>
+  <li><a href="#backstory" id="toc-backstory" class="nav-link" data-scroll-target="#backstory">Backstory</a></li>
+  <li><a href="#closing-remarks" id="toc-closing-remarks" class="nav-link" data-scroll-target="#closing-remarks">Closing Remarks</a></li>
+  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -220,7 +256,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="dataset-have-noisy-labels" class="level2">
 <h2 class="anchored" data-anchor-id="dataset-have-noisy-labels">Dataset have noisy labels!</h2>
 <p>Deep learning has led to impressive results on datasets of all types, but its success often shines when models are trained with large datasets with human-annotated labels (extreme example: GPT-3 and more recently CLIP/ALIGN/DALL-E). A major challenge when constructing these datasets is obtaining enough labels to train a neural network model. There is an inherent tradeoff between the quality of the annotations and the cost of annotation (in the form of time or money). For example, while using sources like Amazon Mechanical Turk provide cheap labeling, the use of these non-expert labeling services will often produce unreliable labels. This is what is referred to as noisy labels, as these unreliable labels are not necessarily ground truth. Unfortunately, neural networks are known to be susceptible to overfitting to noisy labels (see <a href="https://arxiv.org/abs/1611.03530">here</a>) which means alternative approaches are needed to achieve good generalization in the presence of noisy labels.</p>
-<p>## Prior research on noisy labels</p>
+</section>
+<section id="prior-research-on-noisy-labels" class="level2">
+<h2 class="anchored" data-anchor-id="prior-research-on-noisy-labels">Prior research on noisy labels</h2>
 <p>Recently, many techniques have been presented in order to address label noise. These include novel loss functions like <a href="https://arxiv.org/abs/1906.03361">Bi-Tempered Logistic Loss</a><a href="https://www.ijcai.org/Proceedings/2020/305">Taylor Cross Entropy Loss</a>, or <a href="https://arxiv.org/abs/1908.06112">Symmetric Cross Entropy</a>. Additionally, there are many novel training techniques that have been recently developed like <a href="https://arxiv.org/abs/1911.09781">MentorMix</a>, <a href="https://arxiv.org/abs/2002.07394">DivideMix</a>, <a href="https://arxiv.org/abs/2007.00151">Early-Learning Regularization</a> and <a href="https://openreview.net/forum?id=D1E1h-K3jso">Noise-Robust Contrastive Learning</a>.</p>
 <p>Most of these papers are using MNIST, SVHN, CIFAR10 or related datasets with synthetically-added noise. Other common datasets are the WebVision and Clothing1M datasets, which are real-world noisy, large-scale datasets with millions of images. Therefore there is an opportunity to develop a mid-scale dataset that allows for rapid prototyping but is complex enough to provide useful results when it comes to noisy label training.</p>
 </section>
@@ -477,6 +515,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
+</script>
+<script src="https://utteranc.es/client.js" repo="tmabraham/blog" issue-term="Noisy Imagenette" theme="github-light" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
 
