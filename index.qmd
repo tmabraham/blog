@@ -1,5 +1,5 @@
 ---
-title: "new_blog"
+title: "Dr. Tanishq Abraham's blog"
 listing:
   contents: posts
   sort: "date desc"
