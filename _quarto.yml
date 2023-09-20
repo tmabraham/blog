@@ -4,6 +4,7 @@ project:
 website:
   title: "Dr. Tanishq Abraham's blog"
   twitter-card: true
+  open-graph: true
   google-analytics: G-LRXD97FB1E
   site-url: https://www.tanishq.ai/blog
   description: "Dr. Tanishq Abraham's blog."
