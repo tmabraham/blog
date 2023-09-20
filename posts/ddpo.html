@@ -237,8 +237,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Over the past year we have seen the rise of generative AI that has mainly come in two forms: 1. Text-to-image generation powered by diffusion models like Stable Diffusion and DALL-E 2 2. Language models like ChatGPT and LLaMA</p>
-<p>It turns out one of the key ingredients for the mainstream success of language models is the use of Reinforcement Learning from Human Feedback (RLHF) where language models are trained with human feedback to produce outputs that users are more likely to prefer. This has enabled these language models to more easily follow instructions, making these models significantly more accessible. Therefore the question arises if RLHF can be applied to diffusion models. This is a natural question to ask, since text-to-image diffusion models also struggle to follow prompts and tend to need prompt engineering skills in order to get desired results. A <a href="https://arxiv.org/abs/2305.13301">paper in May 2023</a> by the Levine Lab at UC Berkeley explored how the RLHF paradigm can be applied to diffusion models. Their algorithm, cal Here we’ll walk through a simple implementation of this paper. Let’s get started!</p>
+<p>Over the past year we have seen the rise of generative AI that has mainly come in two forms:</p>
+<ol type="1">
+<li><p>Text-to-image generation powered by diffusion models like Stable Diffusion and DALL-E 2</p></li>
+<li><p>Language models like ChatGPT and LLaMA-2</p></li>
+</ol>
+<p>It turns out one of the key ingredients for the mainstream success of language models is the use of Reinforcement Learning from Human Feedback (RLHF) where language models are trained with human feedback to produce outputs that users are more likely to prefer. This has enabled these language models to more easily follow instructions, making these models significantly more accessible. Therefore the question arises if RLHF can be applied to diffusion models. This is a natural question to ask, since text-to-image diffusion models also struggle to follow prompts and tend to need prompt engineering skills in order to get desired results. A <a href="https://arxiv.org/abs/2305.13301">paper in May 2023</a> by the Levine Lab at UC Berkeley explored how the RLHF paradigm can be applied to diffusion models, resulting in an algorithm called DDPO. Here we’ll walk through a simple implementation of this DDPO algorithm. Let’s get started!</p>
 <p>First let’s start with some basic imports:</p>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -380,7 +384,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>Aesthetic score: tensor([[5.6835]], device='cuda:0', grad_fn=&lt;AddmmBackward0&gt;)</code></pre>
 </div>
 </div>
-<p>Just like, that, we get the aesthetic score given with this predictor. Let’s paxkage this code into a function:</p>
+<p>Just like, that, we get the aesthetic score given with this predictor. Let’s package this code into a function:</p>
 <div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> aesthetic_scoring(img, preprocess, clip_model, aesthetic_model_normalize, aesthetic_model):</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    image <span class="op">=</span> preprocess(img).unsqueeze(<span class="dv">0</span>).cuda()</span>
@@ -973,7 +977,12 @@ LOC_synset_mapping. 100%[===================&gt;]  30.93K  --.-KB/s    in 0.006s
 </section>
 <section id="complete-training-loop" class="level2">
 <h2 class="anchored" data-anchor-id="complete-training-loop">Complete training loop</h2>
-<p>Now that we can calculate the loss function, we can construct the full training loop. For a single epoch we: 1. Sample from the diffusion model <code>num_samples_per_epoch</code>times, collecting the intermediate noisy images and log probs. 2. Pass the samples to the reward model and get reward, which we normalize to get advantage. 3. For <code>num_inner_epochs</code> times, we go over each sample compute the loss, backpropagate, and update our diffusion model.</p>
+<p>Now that we can calculate the loss function, we can construct the full training loop. For a single epoch we:</p>
+<ol type="1">
+<li><p>Sample from the diffusion model <code>num_samples_per_epoch</code>times, collecting the intermediate noisy images and log probs.</p></li>
+<li><p>Pass the samples to the reward model and get reward, which we normalize to get advantage.</p></li>
+<li><p>For <code>num_inner_epochs</code> times, we go over each sample compute the loss, backpropagate, and update our diffusion model.</p></li>
+</ol>
 <p>Let’s define all our hyperparameters. We will be training Stable Diffusion v1.4 on ImageNet animal prompts as defined earlier, using the LAION Aesthetic classifier as our reward model.</p>
 <p>Note that if we set <code>num_inner_epochs</code> to a high amount, this would be very data-efficient since we would be repeatedly using the previously generated trajectories, but we would probably significantly diverge from the original policy that we used to get those trajectories (or it would at least get clipped frequently in the loss). So we set <code>num_inner_epochs=1</code>. This is still pretty efficient using DDPO<sub>IS</sub> because otherwise with DDPO<sub>SF</sub> you’d need to resample after every iteration (when model is updated) instead of after <code>num_samples_per_epoch=128</code> that we have here.</p>
 <div class="cell">
@@ -1087,7 +1096,7 @@ LOC_synset_mapping. 100%[===================&gt;]  30.93K  --.-KB/s    in 0.006s
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> drlx.reward_modelling.aesthetics <span class="im">import</span> Aesthetics</span>
 <span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> drlx.pipeline.imagenet_animal_prompts <span class="im">import</span> ImagenetAnimalPrompts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>DRLX has a simple-to-use config system, where the model information and hyperparameters are described in a YAML file. See the config file for this example here.</p>
+<p>DRLX has a simple-to-use config system, where the model information and hyperparameters are described in a YAML file. See the config file for this example <a href="https://github.com/CarperAI/DRLX/blob/main/configs/ddpo_sd_imagenet.yml">here</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>config <span class="op">=</span> DRLXConfig.load_yaml(<span class="st">"configs/ddpo_sd_imagenet.yml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1104,12 +1113,12 @@ LOC_synset_mapping. 100%[===================&gt;]  30.93K  --.-KB/s    in 0.006s
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Note that much of what we discuss here for how RL is applied to diffusion models also applies to language models. Specifically, the autoregressive generation of text from a language model can be viewed as a trajectory from an MDP. The state is the previous tokens, the action is the next token to be predicted, and the policy is of course the language model. The PPO algorithm that we described is the most common RL algorithm for RLHF training of language models. Overall, this hints to a deeper connection between diffusion models and autoregressive language models and how ideas can be transferred from one domain to another. For example, recently it was demonstrated how classifier-free guidance <a href="https://arxiv.org/abs/2306.17806">could be applied</a> to language models. There may continue to be interesting ideas to apply from diffusion models to language models or vice versa.</p>
 <p>This paper only is the start of applying RL to diffusion models. DDPO<sub>IS</sub> is only a baseline, and there are changes that can easily be made to improve the performance, such as value function baselines, reward discounting, KL regularization, etc. Additionally, alternative RLHF algorithms like <a href="https://arxiv.org/abs/2305.18290">direct preference optimization</a> could be explored. We plan to explore these directions further via DRLX.</p>
-<p>Note that much of what we discuss here for how RL is applied to diffusion models also applies to language models. Specifically, the autoregressive generation of text from a language model can be viewed as a trajectory from an MDP. The state is the previous tokens, the action is the next token to be predicted, and the policy is of course the language model. The PPO algorithm that we described is the most common RL algorithm for RLHF training of language models. Overall, this points to a deeper connection between diffusion models and autoregressive language models and how ideas can be transferred from one domain to another. For example, recently it was demonstrated how classifier-free guidance <a href="https://arxiv.org/abs/2306.17806">could be applied</a> to language models. There may continue to be interesting ideas to apply from diffusion models to language models or vice versa.</p>
 </section>
 <section id="acknowledgements" class="level2">
 <h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
-<p>Thank you to Shahbuland Matiana, … for providing feedback on my blog post. Thank you to Costa Huang who helped me debug my code.</p>
+<p>Thank you to <a href="https://twitter.com/shah_bu_land">Shahbuland Matiana</a>, … for providing feedback on my blog post. Thank you to <a href="https://costa.sh/">Costa Huang</a> who helped me debug my code.</p>
 
 
 </section>
