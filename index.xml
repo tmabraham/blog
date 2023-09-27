@@ -607,7 +607,7 @@ LOC_synset_mapping. 100%[===================&gt;]  30.93K  --.-KB/s    in 0.006s
 <p>The loss function can be written in a way that’s numerically easier to calculate/more stable (using logs, ignoring the clipping for now):</p>
 <p><img src="https://latex.codecogs.com/png.latex?%20L(%5Ctheta)%20=%20%5Cmathbb%7BE%7D%20%5Cleft%5B%20-%20%5Csum%5ET_%7Bt=0%7D%20%5Cexp%7B%5Cleft(%5Clog%20p%5E%5Ctext%7Bdiffusion%7D_%5Ctheta(%5Cmathbf%7Bx%7D_%7Bt-1%7D%20%7C%20%5Cmathbf%7Bc%7D,t,%5Cmathbf%7Bx%7D_t)%20-%5Clog%20p%5E%5Ctext%7Bdiffusion%7D_%7B%5Ctheta_%7Bold%7D%7D(%5Cmathbf%7Bx%7D_%7Bt-1%7D%20%7C%20%5Cmathbf%7Bc%7D,t,%5Cmathbf%7Bx%7D_t)%20%5Cright)%7D%20A(%5Cmathbf%7Bx%7D_0,%5Cmathbf%7Bc%7D)%20%5Cright%5D%20"></p>
 <p>The objective and gradient estimator described here is referred in the paper as <strong>DDPO<sub>IS</sub></strong>. It is pretty much the same as <strong>proximal policy optimization (PPO)</strong>, applied to diffusion models.</p>
-<p>For a more complete derivation of the DDPO objective from scratch, see <a href="ddpo_derivation.pdf">here</a>.</p>
+<p>For a more complete derivation of the DDPO objective from scratch, see <a href="https://www.tanishq.ai/blog/posts/ddpo_derivation.pdf">here</a>.</p>
 <p>In order to start implementing this loss function, let’s calculate the log probs, which is easy for a normal distribution:</p>
 <div class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb64" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><span class="kw" style="color: #003B4F;">def</span> calculate_log_probs(prev_sample, prev_sample_mean, std_dev_t):</span>

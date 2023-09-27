@@ -872,7 +872,7 @@ LOC_synset_mapping. 100%[===================&gt;]  30.93K  --.-KB/s    in 0.006s
 <p>The loss function can be written in a way that’s numerically easier to calculate/more stable (using logs, ignoring the clipping for now):</p>
 <p><span class="math display">\[ L(\theta) = \mathbb{E} \left[ - \sum^T_{t=0} \exp{\left(\log p^\text{diffusion}_\theta(\mathbf{x}_{t-1} | \mathbf{c},t,\mathbf{x}_t) -\log p^\text{diffusion}_{\theta_{old}}(\mathbf{x}_{t-1} | \mathbf{c},t,\mathbf{x}_t) \right)} A(\mathbf{x}_0,\mathbf{c}) \right] \]</span></p>
 <p>The objective and gradient estimator described here is referred in the paper as <strong>DDPO<sub>IS</sub></strong>. It is pretty much the same as <strong>proximal policy optimization (PPO)</strong>, applied to diffusion models.</p>
-<p>For a more complete derivation of the DDPO objective from scratch, see <a href="ddpo_derivation.pdf">here</a>.</p>
+<p>For a more complete derivation of the DDPO objective from scratch, see <a href="https://www.tanishq.ai/blog/posts/ddpo_derivation.pdf">here</a>.</p>
 <p>In order to start implementing this loss function, let’s calculate the log probs, which is easy for a normal distribution:</p>
 <div class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_log_probs(prev_sample, prev_sample_mean, std_dev_t):</span>
