@@ -2,7 +2,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/deepseek-delusions.html",
       "/posts/ddpo.html",
       "/posts/2021-11-16-gradio-huggingface.html",
       "/posts/2021-07-14-GitHub-Copilot.html",
