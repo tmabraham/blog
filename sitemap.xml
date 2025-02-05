@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.tanishq.ai/blog/posts/ddpo.html</loc>
-    <lastmod>2023-09-28T13:36:43.677Z</lastmod>
+    <loc>https://www.tanishq.ai/blog/posts/deepseek-delusions.html</loc>
+    <lastmod>2025-02-05T01:28:23.802Z</lastmod>
   </url>
   <url>
-    <loc>https://www.tanishq.ai/blog/posts/2021-07-14-GitHub-Copilot.html</loc>
-    <lastmod>2023-09-28T13:36:43.160Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tanishq.ai/blog/index.html</loc>
-    <lastmod>2023-09-28T13:36:43.033Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tanishq.ai/blog/about.html</loc>
-    <lastmod>2023-09-28T13:36:39.009Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tanishq.ai/blog/deepseek-delusions.html</loc>
-    <lastmod>2025-02-05T00:37:13.801Z</lastmod>
+    <loc>https://www.tanishq.ai/blog/posts/2021-11-16-gradio-huggingface.html</loc>
+    <lastmod>2023-09-28T13:36:43.202Z</lastmod>
   </url>
   <url>
     <loc>https://www.tanishq.ai/blog/posts/2021-03-02-noisy-imagenette.html</loc>
     <lastmod>2023-09-28T13:36:43.083Z</lastmod>
   </url>
   <url>
-    <loc>https://www.tanishq.ai/blog/posts/2021-11-16-gradio-huggingface.html</loc>
-    <lastmod>2023-09-28T13:36:43.202Z</lastmod>
+    <loc>https://www.tanishq.ai/blog/about.html</loc>
+    <lastmod>2023-09-28T13:36:39.009Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tanishq.ai/blog/index.html</loc>
+    <lastmod>2023-09-28T13:36:43.033Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tanishq.ai/blog/posts/2021-07-14-GitHub-Copilot.html</loc>
+    <lastmod>2023-09-28T13:36:43.160Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tanishq.ai/blog/posts/ddpo.html</loc>
+    <lastmod>2023-09-28T13:36:43.677Z</lastmod>
   </url>
 </urlset>
