@@ -216,46 +216,17 @@ gtag('config', 'G-LRXD97FB1E', { 'anonymize_ip': true});
 <li><p>PubMedQA - 1,000 expert-labeled Q&amp;A pairs where a question and corresponding PubMed abstract as context is given, and a yes/maybe/no answer must be produced. Unlike the rest of the tasks in this suite, PubMedQA is a closed-domain Q&amp;A task.</p></li>
 <li><p>MedQA - US Medical License Exam (USMLE) questions with 4 or 5 possible answers. Typically, only the 4-option questions are used.</p></li>
 <li><p>MedMCQA - 4-option multiple choice questions from Indian medical entrance examinations, &gt;191k total questions.</p></li>
-<li><p>MMLU - 4-option multiple choice exam questions from a variety of domains. The following six domains are utilized here:</p></li>
-<li><p>Anatomy</p></li>
-<li><p>Clinical Knowledge</p></li>
-<li><p>College Medicine</p></li>
-<li><p>Medical Genetics</p></li>
-<li><p>Professional Medicine</p></li>
-<li><p>College Biology</p></li>
+<li><p>MMLU - 4-option multiple choice exam questions from a variety of domains. The following six domains are utilized here:</p>
+<ul>
+<li>Anatomy</li>
+<li>Clinical Knowledge</li>
+<li>College Medicine</li>
+<li>Medical Genetics</li>
+<li>Professional Medicine</li>
+<li>College Biology</li>
+</ul></li>
 </ul>
-<p>Here is a representative example of a QA pair from each dataset:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 27%">
-<col style="width: 25%">
-<col style="width: 22%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Dataset</th>
-<th>Question</th>
-<th>Options</th>
-<th>Answer</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>PubMedQA</td>
-<td>Do preoperative statins reduce atrial fibrillation after coronary artery bypass grafting?</td>
-<td>yes or no</td>
-<td>yes</td>
-</tr>
-<tr class="even">
-<td>MedQA</td>
-<td>ar-old man presents to his primary care physician with a 2-month history of right upper and lower extremity weakness. He noticed the weakness when he started falling far more frequently while running errands. Since then, he has had increasing difficulty with walking and lifting objects. His past medical history is significant only for well-controlled hypertension, but he says that some members of his family have had musculoskeletal problems. His right upper extremity shows forearm atrophy and depressed reflexes while his right lower extremity is hypertonic with a positive Babinski sign. Which of the following is most likely associated with the cause of this patient’s symptoms?</td>
-<td>A: HLA-B8 haplotype</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>B: HLA-DR2 haplotype C: Mutation in SOD1 D: Mutation in SMN1 E: Viral infection | C | | MedMCQA | Which drug is a selective COX 2 inhibitor? | A: Celecoxib B: Acetaminophen C: Ketorolac D: Aspirin | A | | MMLU | Which of the following conditions does not show multifactorial inheritance? | A: Pyloric stenosis B: Schizophrenia C: Spina bifida (neural tube defects) D: Marfan syndrome | D |</p>
+<p>Here is a representative example of a QA pair from each dataset: | Dataset | Question | Options | Answer | | — | — | — | — | | PubMedQA | Do preoperative statins reduce atrial fibrillation after coronary artery bypass grafting? | yes or no | yes | | MedQA | A 57-year-old man presents to his primary care physician with a 2-month history of right upper and lower extremity weakness. He noticed the weakness when he started falling far more frequently while running errands. Since then, he has had increasing difficulty with walking and lifting objects. His past medical history is significant only for well-controlled hypertension, but he says that some members of his family have had musculoskeletal problems. His right upper extremity shows forearm atrophy and depressed reflexes while his right lower extremity is hypertonic with a positive Babinski sign. Which of the following is most likely associated with the cause of this patient’s symptoms? | A: HLA-B8 haplotype B: HLA-DR2 haplotype C: Mutation in SOD1 D: Mutation in SMN1 E: Viral infection | C | | MedMCQA | Which drug is a selective COX 2 inhibitor? | A: Celecoxib B: Acetaminophen C: Ketorolac D: Aspirin | A | | MMLU | Which of the following conditions does not show multifactorial inheritance? | A: Pyloric stenosis B: Schizophrenia C: Spina bifida (neural tube defects) D: Marfan syndrome | D |</p>
 <p>When papers report “LLM X beats humans on medical license exams” they typically refer to models surpassing baseline human performance on benchmarks such as MedQA and MedMCQA (or also a separate USMLE benchmark).</p>
 <p>Current state-of-the-art LLMs have already achieved very high accuracy on these tasks. For example, Med-Gemini achieved 91.1% on MedQA. Many of these benchmarks are being saturated and losing their utility. In fact, some researchers noticed that many of the questions that LLMs get wrong actually have incorrect ground truth labels!</p>
 <p>Based on this, you might assume LLMs have solved medicine. You would be incorrect.</p>
