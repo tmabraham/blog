@@ -10,7 +10,7 @@
 <atom:link href="https://www.tanishq.ai/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Dr. Tanishq Abraham&#39;s blog.</description>
 <generator>quarto-1.6.40</generator>
-<lastBuildDate>Tue, 04 Feb 2025 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 04 Feb 2025 08:00:00 GMT</lastBuildDate>
 <item>
   <title>Debunking DeepSeek Delusions</title>
   <dc:creator>Tanishq Mathew Abraham, Ph.D.</dc:creator>
@@ -122,7 +122,7 @@
   <category>deep learning</category>
   <category>reinforcement learning</category>
   <guid>https://www.tanishq.ai/blog/posts/deepseek-delusions.html</guid>
-  <pubDate>Tue, 04 Feb 2025 05:00:00 GMT</pubDate>
+  <pubDate>Tue, 04 Feb 2025 08:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Reinforcement Learning for Diffusion Models from Scratch</title>
@@ -2613,7 +2613,7 @@ font-style: inherit;">=</span> DDPOTrainer(config)</span>
   <category>diffusion models</category>
   <category>reinforcement learning</category>
   <guid>https://www.tanishq.ai/blog/posts/ddpo.html</guid>
-  <pubDate>Fri, 22 Sep 2023 04:00:00 GMT</pubDate>
+  <pubDate>Fri, 22 Sep 2023 07:00:00 GMT</pubDate>
   <media:content url="https://www.tanishq.ai/blog/posts/image-3.png" medium="image" type="image/png" height="132" width="144"/>
 </item>
 <item>
@@ -3239,7 +3239,7 @@ font-style: inherit;">2</span>))</span></code></pre></div>
 </section></div> ]]></description>
   <category>deep learning</category>
   <guid>https://www.tanishq.ai/blog/posts/2021-11-16-gradio-huggingface.html</guid>
-  <pubDate>Tue, 16 Nov 2021 05:00:00 GMT</pubDate>
+  <pubDate>Tue, 16 Nov 2021 08:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Coding with GitHub Copilot</title>
@@ -3441,7 +3441,7 @@ Arabic
 </section></div> ]]></description>
   <category>programming</category>
   <guid>https://www.tanishq.ai/blog/posts/2021-07-14-GitHub-Copilot.html</guid>
-  <pubDate>Wed, 14 Jul 2021 04:00:00 GMT</pubDate>
+  <pubDate>Wed, 14 Jul 2021 07:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Introducing Noisy Imagenette</title>
@@ -3606,7 +3606,7 @@ Note
   <category>deep learning</category>
   <category>imagenette</category>
   <guid>https://www.tanishq.ai/blog/posts/2021-03-02-noisy-imagenette.html</guid>
-  <pubDate>Tue, 02 Mar 2021 05:00:00 GMT</pubDate>
+  <pubDate>Tue, 02 Mar 2021 08:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
