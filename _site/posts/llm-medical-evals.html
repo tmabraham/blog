@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tanishq Mathew Abraham">
+<meta name="dcterms.date" content="2025-03-03">
+<meta name="description" content="A quick overview!">
+
+<title>LLMs in medicine: evaluations, advances, and the future – Dr.&nbsp;Tanishq Abraham</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-142b83248fff05c40a104f887ecaea57.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LRXD97FB1E"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-LRXD97FB1E', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="LLMs in medicine: evaluations, advances, and the future – Dr.&nbsp;Tanishq Abraham">
+<meta property="og:description" content="A quick overview!">
+<meta property="og:image" content="https://www.tanishq.ai/blog/posts/GhUlR2fXIAAbUZa.jpg">
+<meta property="og:site_name" content="Dr. Tanishq Abraham">
+<meta name="twitter:title" content="LLMs in medicine: evaluations, advances, and the future – Dr.&nbsp;Tanishq Abraham">
+<meta name="twitter:description" content="A quick overview!">
+<meta name="twitter:image" content="https://www.tanishq.ai/blog/posts/GhUlR2fXIAAbUZa.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Dr.&nbsp;Tanishq Abraham</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/tmabraham"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/iScienceLuvr"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/tanishq-abraham-iscienceluvr/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">LLMs in medicine: evaluations, advances, and the future</h1>
+                  <div>
+        <div class="description">
+          A quick overview!
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">deep learning</div>
+                <div class="quarto-category">medical AI</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Tanishq Mathew Abraham </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 3, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#how-llm-medical-capabilities-are-evaluated" id="toc-how-llm-medical-capabilities-are-evaluated" class="nav-link" data-scroll-target="#how-llm-medical-capabilities-are-evaluated">How LLM medical capabilities are evaluated</a></li>
+  <li><a href="#going-beyond-multiple-choice-question-answering" id="toc-going-beyond-multiple-choice-question-answering" class="nav-link" data-scroll-target="#going-beyond-multiple-choice-question-answering">Going beyond multiple-choice question answering</a></li>
+  <li><a href="#the-future-of-llm-medical-capabilities" id="toc-the-future-of-llm-medical-capabilities" class="nav-link" data-scroll-target="#the-future-of-llm-medical-capabilities">The future of LLM medical capabilities</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Large Language Models (LLMs) have shown significant potential for medical applications yet many challenges remain. Let’s talk about the state of LLMs in medicine, how these models are evaluated, how the latest models are improving, and the future of the field.</p>
+<p>Significant progress in the field has been made by Google and Microsoft/OpenAI<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Here are some of the models these companies have developed either for medical use-cases or been tested specifically on medical tasks:</p>
+<p>Google: Med-PaLM → Med-PaLM 2 → Med-PaLM M → AMIE and Med-Gemini</p>
+<p>OpenAI: GPT-3 → GPT-4 → GPT-o1-preview<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>Note that Google’s strategy so far has been to fine-tune their general purpose models for medical use-cases, while Microsoft takes OpenAI general-purpose models and directly applies them to medical tasks.</p>
+<p>The open-source community has also produced models that have been evaluated for medical tasks, including Llama, Mistral, Qwen, and the DeepSeek-series models. In addition, certain models have been specifically fine-tuned for medical applications, such as Meditron <span class="citation" data-cites="chen_meditron-70b_2023"><a href="#ref-chen_meditron-70b_2023" role="doc-biblioref">[1]</a></span>.</p>
+</section>
+<section id="how-llm-medical-capabilities-are-evaluated" class="level2">
+<h2 class="anchored" data-anchor-id="how-llm-medical-capabilities-are-evaluated">How LLM medical capabilities are evaluated</h2>
+<p>Until fairly recently, the prevalent way of evaluating model performance for medical tasks is to report performance on multiple choice medical question answering (MCQA) benchmarks. This practice was popularized by Google’s Med-PaLM paper <span class="citation" data-cites="singhal_large_2023"><a href="#ref-singhal_large_2023" role="doc-biblioref">[2]</a></span>, which introduced the MultiMedQA benchmark. This benchmark is itself a suite of a few other benchmarks:</p>
+<ul>
+<li><p>PubMedQA <span class="citation" data-cites="jin_pubmedqa_2019"><a href="#ref-jin_pubmedqa_2019" role="doc-biblioref">[3]</a></span> - 1,000 expert-labeled Q&amp;A pairs where a question and corresponding PubMed abstract as context is given, and a yes/maybe/no answer must be produced. Unlike the rest of the tasks in this suite, PubMedQA is a closed-domain Q&amp;A task.</p></li>
+<li><p>MedQA <span class="citation" data-cites="jin_what_2020"><a href="#ref-jin_what_2020" role="doc-biblioref">[4]</a></span> - US Medical License Exam (USMLE) questions with 4 or 5 possible answers. Typically, only the 4-option questions are used.</p></li>
+<li><p>MedMCQA <span class="citation" data-cites="pal_medmcqa_2022"><a href="#ref-pal_medmcqa_2022" role="doc-biblioref">[5]</a></span> - 4-option multiple choice questions from Indian medical entrance examinations, &gt;191k total questions.</p></li>
+<li><p>MMLU <span class="citation" data-cites="hendrycks_measuring_2021"><a href="#ref-hendrycks_measuring_2021" role="doc-biblioref">[6]</a></span> - 4-option multiple choice exam questions from a variety of domains. The following six domains are utilized here:</p>
+<ul>
+<li>Anatomy</li>
+<li>Clinical Knowledge</li>
+<li>College Medicine</li>
+<li>Medical Genetics</li>
+<li>Professional Medicine</li>
+<li>College Biology</li>
+</ul></li>
+</ul>
+<p>Here is a representative example of a QA pair from each dataset:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 0%">
+<col style="width: 84%">
+<col style="width: 13%">
+<col style="width: 0%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dataset</th>
+<th>Question</th>
+<th>Options</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PubMedQA</td>
+<td>Do preoperative statins reduce atrial fibrillation after coronary artery bypass grafting?</td>
+<td>yes or no</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td>MedQA</td>
+<td>A 57-year-old man presents to his primary care physician with a 2-month history of right upper and lower extremity weakness. He noticed the weakness when he started falling far more frequently while running errands. Since then, he has had increasing difficulty with walking and lifting objects. His past medical history is significant only for well-controlled hypertension, but he says that some members of his family have had musculoskeletal problems. His right upper extremity shows forearm atrophy and depressed reflexes while his right lower extremity is hypertonic with a positive Babinski sign. Which of the following is most likely associated with the cause of this patient’s symptoms?</td>
+<td>A: HLA-B8 haplotype<br>B: HLA-DR2 haplotype<br>C: Mutation in SOD1<br>D: Mutation in SMN1<br>E: Viral infection</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td>MedMCQA</td>
+<td>Which drug is a selective COX 2 inhibitor?</td>
+<td>A: Celecoxib<br>B: Acetaminophen<br>C: Ketorolac<br>D: Aspirin</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td>MMLU</td>
+<td>Which of the following conditions does not show multifactorial inheritance?</td>
+<td>A: Pyloric stenosis<br>B: Schizophrenia<br>C: Spina bifida (neural tube defects)<br>D: Marfan syndrome</td>
+<td>D</td>
+</tr>
+</tbody>
+</table>
+<p>When papers report “LLM X beats humans on medical license exams” they typically refer to models surpassing baseline human performance on benchmarks such as MedQA and MedMCQA (or also a separate USMLE benchmark).</p>
+<p>Current state-of-the-art LLMs have already achieved very high accuracy on these tasks. For example, Med-Gemini <span class="citation" data-cites="saab_capabilities_2024"><a href="#ref-saab_capabilities_2024" role="doc-biblioref">[7]</a></span> achieved 91.1% on MedQA. Many of these benchmarks are being saturated and losing their utility. In fact, some researchers noticed that many of the questions that LLMs get wrong actually have incorrect ground truth labels!</p>
+<p>Based on this, you might assume LLMs have solved medicine. You would be incorrect.</p>
+<p>All of these benchmarks consist of multiple choice questions. When you consult a doctor, do you imagine a list of potential diagnoses floating above your head, waiting for the doctor to simply choose the right one? Unfortunately not! Multiple choice question answering benchmarks can assess if an LLM contains medical knowledge and basic medical capabilities, but it does not accurately represent the actual practice of medicine!</p>
+</section>
+<section id="going-beyond-multiple-choice-question-answering" class="level2">
+<h2 class="anchored" data-anchor-id="going-beyond-multiple-choice-question-answering">Going beyond multiple-choice question answering</h2>
+<p>Over the past year or so, especially with MultiMedQA being saturated by recent well-performing LLMs, researchers have become acutely aware of the challenges of current medical MCQA benchmarks. For this reason, researchers have started evaluating LLMs in new ways that they hope better align with actual medical use-cases.</p>
+<p>For example, at the end of 2023, Google published a paper on how well a medically finetuned variant of PaLM-2 (distinct from Med-PaLM 2) performed on differential diagnoses using a new benchmark <span class="citation" data-cites="mcduff_towards_2023"><a href="#ref-mcduff_towards_2023" role="doc-biblioref">[8]</a></span>. New England Journal of Medicine (NEJM) Clinicopathological Conference Case Reports are lightly edited transcriptions of the clinicopathological conferences of the Mass General Hospital. In a clinicopathological conference, a patient case (medical history, test results, etc.) is described and an expert physician is asked to provide a differential diagnosis and a final diagnosis. These cases are published regularly in the NEJM as “diagnostic puzzles”. Many papers are now using these cases to evaluate LLMs, although different cases are used between different studies.</p>
+<p>Google’s LLM achieved 59.1% accuracy in including the correct diagnosis somewhere in its top 10 differential diagnoses—better than unassisted doctors at 33.6%. When doctors used the LLM as an assistant, they achieved 51.7% accuracy versus 44.4% with just search tools.</p>
+<p>This certainly seems very promising, but we shouldn’t read too much into these results. Let us consider how there remain weaknesses to this benchmark. All the necessary information to make the diagnosis is provided upfront and there is no back-and-forth between patient and physician. Real medical practice requires gathering information dynamically from patients, and dealing with uncertainty, which these carefully structured benchmarks cannot evaluate.</p>
+<p>Researchers recognized this gap and several research groups have now developed novel frameworks for evaluating LLMs for clinical settings, each taking different approaches to attempt to simulate more realistic medical practices:</p>
+<p>CRAFT-MD (Oct 2023) <span class="citation" data-cites="johri_evaluation_2025"><a href="#ref-johri_evaluation_2025" role="doc-biblioref">[9]</a></span>, developed by researchers at Harvard Medical School and Stanford, introduced a framework using three AI agents: a patient agent, doctor agent (the LLM being evaluated), and a grader agent. Their evaluation used three main data sources: 1,800 case vignettes from MedQA dataset, 100 questions from an online medical question bank focused on dermatology, and 100 newly generated private dermatology cases created by dermatologists. The researchers specifically focused on dermatology to evaluate how well LLMs could conduct nuanced conversations about symptoms, progression, and medical history. Their evaluation revealed that diagnostic accuracy drops significantly when LLMs need to gather information through conversation rather than being presented with all information upfront. For example, GPT-4’s accuracy dropped from 82% to 62.7% when moving from static case descriptions to conversations. They also examined how biases affected performance, finding that while GPT-4 was relatively robust, other models like Mixtral-8x7B showed significant performance degradation when biases were introduced.</p>
+<p>AMIE (Jan 2024) <span class="citation" data-cites="tu_towards_2024"><a href="#ref-tu_towards_2024" role="doc-biblioref">[10]</a></span>, developed by Google DeepMind, took a different approach by conducting a randomized, double-blind crossover study comparing their LLM system against primary care physicians using standardized patient actors. The study used 149 scenario packs sourced from multiple regions: 75 from India, 60 from Canada, and 14 from the UK. These scenarios covered conditions across multiple specialties including cardiovascular, respiratory, gastroenterology, neurology, and obstetrics/gynecology, though notably excluded pediatric and psychiatric cases. The study revealed that AMIE outperformed physicians on 28 of 32 evaluation axes according to specialist physicians and 24 of 26 axes according to patient actors. However, the authors note important limitations, particularly that the text-chat interface may have disadvantaged human physicians who are more accustomed to in-person or video consultations.</p>
+<p>AgentClinic (Oct 2024) <span class="citation" data-cites="schmidgall_agentclinic_2024"><a href="#ref-schmidgall_agentclinic_2024" role="doc-biblioref">[11]</a></span>, from researchers at Stanford and Johns Hopkins, introduced a broader framework supporting multiple medical specialties, multiple languages, and multimodal inputs like medical imaging. Their evaluation environment drew from several datasets: the MedQA USMLE dataset for general medical scenarios, MIMIC-IV database for realistic patient cases, NEJM case challenges (120 cases) for multimodal evaluation, and MedMCQA dataset for specialist cases across 9 medical specialties. They also created multilingual versions in 7 languages (Chinese, Hindi, Korean, Spanish, French, Persian, and English). Their evaluation showed Claude-3.5 achieved the highest performance with 62.1% accuracy on their benchmark, while also demonstrating that different models varied significantly in their ability to utilize tools like experiential learning and adaptive retrieval.</p>
+<p>MIMIC-CDM (Sept 2024) <span class="citation" data-cites="hager_evaluation_2024"><a href="#ref-hager_evaluation_2024" role="doc-biblioref">[12]</a></span>, from researchers at Technical University of Munich and Imperial College London demonstrated that current LLMs still face significant challenges in real clinical settings. Using a comprehensive dataset of 2,400 real patient cases from the MIMIC database, focused on four common abdominal pathologies (appendicitis, cholecystitis, diverticulitis, and pancreatitis), they showed that LLMs struggled with guideline adherence and lab result interpretation. Each case included comprehensive medical data: admission info, lab events, radiology reports, diagnoses, and discharge summaries. The study found that even state-of-the-art models performed significantly worse than physicians across all pathologies, with accuracy dropping further when models had to gather information themselves rather than having it provided upfront.</p>
+<p>Physicians only spend roughly 27% of their time performing direct clinical care duties with the rest being spent on laborious documentation and administrative tasks, so it’s important to also evaluate LLMs on these complex administrative tasks for realistic/practical medical applications. MedAgentBench (Feb 2025) <span class="citation" data-cites="jiang_medagentbench_2025"><a href="#ref-jiang_medagentbench_2025" role="doc-biblioref">[13]</a></span> developed by Stanford researchers is a comprehensive benchmark designed to evaluate the agent capabilities of LLMs to work with realistic electronic health records. The MedAgentBench framework comprises 300 clinically-derived tasks across 10 categories, utilizing realistic profiles of 100 patients with over 700,000 records. The authors show that while current LLMs like Claude 3.5 Sonnet v2 can achieve success rates close to 70%, substantial challenges remain—especially in executing action-based tasks—highlighting the need for further advancements before such systems can be reliably integrated into clinical workflows.</p>
+<p>Overall, these different approaches to evaluation have helped expose the current limitations of LLMs (poor performance in more realistic patient-doctor interactions) in medical applications while also highlighting areas for improvement. While multiple-choice medical exam benchmarks suggested near-human or superhuman performance, these more realistic evaluations reveal that LLMs still fall short of clinical practice in many ways.</p>
+<p>Before moving on, it’s worth noting two things:</p>
+<ol type="1">
+<li><p>While it seems like these alternative (often agentic) approaches are more useful now for highlighting the limitations of current LLMs, this doesn’t mean MCQA benchmarks are completely over. New, more challenging and unsaturated MCQA benchmarks can be constructed. For example, researchers at Tsinghua University included questions from specialty board exams for specialized scenarios with easy and highly similar questions filtered out to construct the challenging MedXpertQA benchmark (Jan 2025) <span class="citation" data-cites="zuo_medxpertqa_2025"><a href="#ref-zuo_medxpertqa_2025" role="doc-biblioref">[14]</a></span>.</p></li>
+<li><p>LLM limitations can also be evaluated with more unrealistic toy questions that specifically evaluate the model’s flexible reasoning abilities or capacity to identify knowledge gaps. Two good examples of this are MetaMedQA (Jan 2025) <span class="citation" data-cites="griot_large_2025"><a href="#ref-griot_large_2025" role="doc-biblioref">[15]</a></span> and M-ARC (Feb 2025) <span class="citation" data-cites="kim_limitations_2025"><a href="#ref-kim_limitations_2025" role="doc-biblioref">[16]</a></span>.</p></li>
+</ol>
+</section>
+<section id="the-future-of-llm-medical-capabilities" class="level2">
+<h2 class="anchored" data-anchor-id="the-future-of-llm-medical-capabilities">The future of LLM medical capabilities</h2>
+<p>I think it’s becoming clear that the challenges of general purpose LLMs also apply to medical LLMs. Namely, addressing reasoning is extremely important for medical tasks as well. My hypothesis is that the progression and development of reasoning models will address many of the limitations of LLMs in medicine, supported by the fact that Microsoft reports o1-preview achieved SoTA on MultiMedQA <span class="citation" data-cites="nori_medprompt_2024"><a href="#ref-nori_medprompt_2024" role="doc-biblioref">[17]</a></span>. What’s particularly interesting is that models like o1-preview can spend more or less compute “thinking” about a problem, and spending more reasoning tokens tends to improve performance!</p>
+<p><img src="GhUlR2fXIAAbUZa.jpg" class="img-fluid"></p>
+<p>Another study instead analyzes how well o1-preview performs on case studies like the NEJM case challenges <span class="citation" data-cites="brodeur_superhuman_2024"><a href="#ref-brodeur_superhuman_2024" role="doc-biblioref">[18]</a></span>. Here, responses by o1-preview were evaluated by two physicians from a score of 0 (no suggestions close to target diagnosis) to 5 (contains the exact target diagnosis) with the model including the correct diagnosis in its differential in 78.3% of cases (with the correct diagnosis being the top suggestion 52% of the time), and significantly outperforming GPT-4 on a subset of 70 cases where o1-preview achieved 88.6% accuracy compared to GPT-4’s 72.9%.</p>
+<p>So what’s next? Well, so far there hasn’t been a study of o1 in the agentic patient-doctor scenario environments as I previously discussed, so that’s a clear next step. Additionally, it will be interesting to see how o3 models perform. The open-source community also has developed their own reasoning-enhanced LLMs (ex: DeepSeek-R1), and it will be valuable to see how well these o1 replication models perform on medical benchmarks.</p>
+<p>Finally, this is still a very narrow look at how foundation models can be applied to medicine. Specifically, most of the analyses discussed do not include processing of multiple modalities like medical images, lab tests, etc. which is an important aspect of clinical care. Instead, analyses of these tests are usually described in text and provided to the LLM. Additionally, much of the research focuses on evaluating general-purpose LLMs. I believe we need to go beyond general-purpose LLMs for medicine and instead focus on medical-specific multimodal models. Of course, this will necessitate new evaluations. I will discuss both of these points in future blog posts.</p>
+<p>The trajectory of LLMs in medicine demonstrates both impressive advances and important limitations. While early evaluations on multiple-choice medical exams suggested near-superhuman performance, newer frameworks like CRAFT-MD, AMIE, and AgentClinic have exposed crucial gaps between simplistic benchmark performance and real clinical capabilities. The emergence of reasoning-enhanced models offers promise, with their ability to achieve state-of-the-art results on both traditional benchmarks and complex case studies suggesting that enhanced reasoning capabilities may be key to bridging this gap.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Moving forward, the field must focus on two key challenges: evaluating these reasoning-enhanced models in realistic clinical scenarios and developing true multimodal medical AI systems capable of processing and reasoning about diverse clinical data modalities. As we continue to refine both our models and evaluation methods, the goal remains clear: creating AI systems that can genuinely support and enhance medical practice rather than just excel at standardized tests.</p>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p>Thank you to Paul Scotti, Ph.D.&nbsp;Jean-Benoit Delbrouck, Ph.D., and Alireza Nejati, Ph.D.&nbsp;for review and feedback.</p>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-chen_meditron-70b_2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">Z. Chen <em>et al.</em>, <span>“<span>MEDITRON</span>-<span>70B</span>: <span>Scaling</span> <span>Medical</span> <span>Pretraining</span> for <span>Large</span> <span>Language</span> <span>Models</span>.”</span> arXiv, Nov. 2023. doi: <a href="https://doi.org/10.48550/arXiv.2311.16079">10.48550/arXiv.2311.16079</a>. Available: <a href="http://arxiv.org/abs/2311.16079">http://arxiv.org/abs/2311.16079</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-singhal_large_2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">K. Singhal <em>et al.</em>, <span>“Large language models encode clinical knowledge,”</span> <em>Nature</em>, vol. 620, no. 7972, pp. 172–180, Aug. 2023, doi: <a href="https://doi.org/10.1038/s41586-023-06291-2">10.1038/s41586-023-06291-2</a>. Available: <a href="https://www.nature.com/articles/s41586-023-06291-2">https://www.nature.com/articles/s41586-023-06291-2</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-jin_pubmedqa_2019" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">Q. Jin, B. Dhingra, Z. Liu, W. Cohen, and X. Lu, <span>“<span>PubMedQA</span>: <span>A</span> <span>Dataset</span> for <span>Biomedical</span> <span>Research</span> <span>Question</span> <span>Answering</span>,”</span> in <em>Proceedings of the 2019 <span>Conference</span> on <span>Empirical</span> <span>Methods</span> in <span>Natural</span> <span>Language</span> <span>Processing</span> and the 9th <span>International</span> <span>Joint</span> <span>Conference</span> on <span>Natural</span> <span>Language</span> <span>Processing</span> (<span>EMNLP</span>-<span>IJCNLP</span>)</em>, K. Inui, J. Jiang, V. Ng, and X. Wan, Eds., Hong Kong, China: Association for Computational Linguistics, Nov. 2019, pp. 2567–2577. doi: <a href="https://doi.org/10.18653/v1/D19-1259">10.18653/v1/D19-1259</a>. Available: <a href="https://aclanthology.org/D19-1259/">https://aclanthology.org/D19-1259/</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-jin_what_2020" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">D. Jin, E. Pan, N. Oufattole, W.-H. Weng, H. Fang, and P. Szolovits, <span>“What <span>Disease</span> does this <span>Patient</span> <span>Have</span>? <span>A</span> <span>Large</span>-scale <span>Open</span> <span>Domain</span> <span>Question</span> <span>Answering</span> <span>Dataset</span> from <span>Medical</span> <span>Exams</span>.”</span> arXiv, Sep. 2020. doi: <a href="https://doi.org/10.48550/arXiv.2009.13081">10.48550/arXiv.2009.13081</a>. Available: <a href="http://arxiv.org/abs/2009.13081">http://arxiv.org/abs/2009.13081</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-pal_medmcqa_2022" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">A. Pal, L. K. Umapathi, and M. Sankarasubbu, <span>“<span>MedMCQA</span> : <span>A</span> <span>Large</span>-scale <span>Multi</span>-<span>Subject</span> <span>Multi</span>-<span>Choice</span> <span>Dataset</span> for <span>Medical</span> domain <span>Question</span> <span>Answering</span>.”</span> arXiv, Mar. 2022. doi: <a href="https://doi.org/10.48550/arXiv.2203.14371">10.48550/arXiv.2203.14371</a>. Available: <a href="http://arxiv.org/abs/2203.14371">http://arxiv.org/abs/2203.14371</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-hendrycks_measuring_2021" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">D. Hendrycks <em>et al.</em>, <span>“Measuring <span>Massive</span> <span>Multitask</span> <span>Language</span> <span>Understanding</span>.”</span> arXiv, Jan. 2021. doi: <a href="https://doi.org/10.48550/arXiv.2009.03300">10.48550/arXiv.2009.03300</a>. Available: <a href="http://arxiv.org/abs/2009.03300">http://arxiv.org/abs/2009.03300</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-saab_capabilities_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">K. Saab <em>et al.</em>, <span>“Capabilities of <span>Gemini</span> <span>Models</span> in <span>Medicine</span>.”</span> arXiv, May 2024. doi: <a href="https://doi.org/10.48550/arXiv.2404.18416">10.48550/arXiv.2404.18416</a>. Available: <a href="http://arxiv.org/abs/2404.18416">http://arxiv.org/abs/2404.18416</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-mcduff_towards_2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">D. McDuff <em>et al.</em>, <span>“Towards <span>Accurate</span> <span>Differential</span> <span>Diagnosis</span> with <span>Large</span> <span>Language</span> <span>Models</span>.”</span> arXiv, Nov. 2023. doi: <a href="https://doi.org/10.48550/arXiv.2312.00164">10.48550/arXiv.2312.00164</a>. Available: <a href="http://arxiv.org/abs/2312.00164">http://arxiv.org/abs/2312.00164</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-johri_evaluation_2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">S. Johri <em>et al.</em>, <span>“An evaluation framework for clinical use of large language models in patient interaction tasks,”</span> <em>Nature Medicine</em>, vol. 31, no. 1, pp. 77–86, Jan. 2025, doi: <a href="https://doi.org/10.1038/s41591-024-03328-5">10.1038/s41591-024-03328-5</a>. Available: <a href="https://www.nature.com/articles/s41591-024-03328-5">https://www.nature.com/articles/s41591-024-03328-5</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-tu_towards_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">T. Tu <em>et al.</em>, <span>“Towards <span>Conversational</span> <span>Diagnostic</span> <span>AI</span>.”</span> arXiv, Jan. 2024. doi: <a href="https://doi.org/10.48550/arXiv.2401.05654">10.48550/arXiv.2401.05654</a>. Available: <a href="http://arxiv.org/abs/2401.05654">http://arxiv.org/abs/2401.05654</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-schmidgall_agentclinic_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">S. Schmidgall, R. Ziaei, C. Harris, E. Reis, J. Jopling, and M. Moor, <span>“<span>AgentClinic</span>: A multimodal agent benchmark to evaluate <span>AI</span> in simulated clinical environments.”</span> arXiv, Oct. 2024. doi: <a href="https://doi.org/10.48550/arXiv.2405.07960">10.48550/arXiv.2405.07960</a>. Available: <a href="http://arxiv.org/abs/2405.07960">http://arxiv.org/abs/2405.07960</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-hager_evaluation_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[12] </div><div class="csl-right-inline">P. Hager <em>et al.</em>, <span>“Evaluation and mitigation of the limitations of large language models in clinical decision-making,”</span> <em>Nature Medicine</em>, vol. 30, no. 9, pp. 2613–2622, Sep. 2024, doi: <a href="https://doi.org/10.1038/s41591-024-03097-1">10.1038/s41591-024-03097-1</a>. Available: <a href="https://www.nature.com/articles/s41591-024-03097-1">https://www.nature.com/articles/s41591-024-03097-1</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-jiang_medagentbench_2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[13] </div><div class="csl-right-inline">Y. Jiang <em>et al.</em>, <span>“<span>MedAgentBench</span>: <span>A</span> <span>Realistic</span> <span>Virtual</span> <span>EHR</span> <span>Environment</span> to <span>Benchmark</span> <span>Medical</span> <span>LLM</span> <span>Agents</span>.”</span> arXiv, Feb. 2025. doi: <a href="https://doi.org/10.48550/arXiv.2501.14654">10.48550/arXiv.2501.14654</a>. Available: <a href="http://arxiv.org/abs/2501.14654">http://arxiv.org/abs/2501.14654</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-zuo_medxpertqa_2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[14] </div><div class="csl-right-inline">Y. Zuo <em>et al.</em>, <span>“<span>MedXpertQA</span>: <span>Benchmarking</span> <span>Expert</span>-<span>Level</span> <span>Medical</span> <span>Reasoning</span> and <span>Understanding</span>.”</span> arXiv, Feb. 2025. doi: <a href="https://doi.org/10.48550/arXiv.2501.18362">10.48550/arXiv.2501.18362</a>. Available: <a href="http://arxiv.org/abs/2501.18362">http://arxiv.org/abs/2501.18362</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-griot_large_2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[15] </div><div class="csl-right-inline">M. Griot, C. Hemptinne, J. Vanderdonckt, and D. Yuksel, <span>“Large <span>Language</span> <span>Models</span> lack essential metacognition for reliable medical reasoning,”</span> <em>Nature Communications</em>, vol. 16, no. 1, p. 642, Jan. 2025, doi: <a href="https://doi.org/10.1038/s41467-024-55628-6">10.1038/s41467-024-55628-6</a>. Available: <a href="https://www.nature.com/articles/s41467-024-55628-6">https://www.nature.com/articles/s41467-024-55628-6</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-kim_limitations_2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[16] </div><div class="csl-right-inline">J. Kim, A. Podlasek, K. Shidara, F. Liu, A. Alaa, and D. Bernardo, <span>“Limitations of <span>Large</span> <span>Language</span> <span>Models</span> in <span>Clinical</span> <span>Problem</span>-<span>Solving</span> <span>Arising</span> from <span>Inflexible</span> <span>Reasoning</span>.”</span> arXiv, Feb. 2025. doi: <a href="https://doi.org/10.48550/arXiv.2502.04381">10.48550/arXiv.2502.04381</a>. Available: <a href="http://arxiv.org/abs/2502.04381">http://arxiv.org/abs/2502.04381</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-nori_medprompt_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[17] </div><div class="csl-right-inline">H. Nori <em>et al.</em>, <span>“From <span>Medprompt</span> to o1: <span>Exploration</span> of <span>Run</span>-<span>Time</span> <span>Strategies</span> for <span>Medical</span> <span>Challenge</span> <span>Problems</span> and <span>Beyond</span>.”</span> arXiv, Nov. 2024. doi: <a href="https://doi.org/10.48550/arXiv.2411.03590">10.48550/arXiv.2411.03590</a>. Available: <a href="http://arxiv.org/abs/2411.03590">http://arxiv.org/abs/2411.03590</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-brodeur_superhuman_2024" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[18] </div><div class="csl-right-inline">P. G. Brodeur <em>et al.</em>, <span>“Superhuman performance of a large language model on the reasoning tasks of a physician.”</span> arXiv, Dec. 2024. doi: <a href="https://doi.org/10.48550/arXiv.2412.10849">10.48550/arXiv.2412.10849</a>. Available: <a href="http://arxiv.org/abs/2412.10849">http://arxiv.org/abs/2412.10849</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Even though Microsoft and OpenAI are separate, I keep them together because so far OpenAI hasn’t published any separate medical AI research while Microsoft publishes their evaluations of OpenAI models on medical tasks, although that may change in the future with OpenAI’s new health AI team.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>o1 and o3-mini have not been evaluated on medical tasks yet, as far as I know.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{abraham2025,
+  author = {Abraham, Tanishq Mathew},
+  title = {LLMs in Medicine: Evaluations, Advances, and the Future},
+  date = {2025-03-03},
+  url = {https://www.tanishq.ai/blog/posts/llm-medical-evals.html},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-abraham2025" class="csl-entry quarto-appendix-citeas" role="listitem">
+<div class="">T.
+M. Abraham, <span>“LLMs in medicine: evaluations, advances, and the
+future,”</span> Mar. 03, 2025. Available: <a href="https://www.tanishq.ai/blog/posts/llm-medical-evals.html">https://www.tanishq.ai/blog/posts/llm-medical-evals.html</a></div>
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.tanishq\.ai\/blog");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="tmabraham/blog" issue-term="title" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
