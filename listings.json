@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/llm-medical-evals.html",
       "/posts/deepseek-delusions.html",
       "/posts/ddpo.html",
       "/posts/2021-11-16-gradio-huggingface.html",

@@ -9,8 +9,212 @@
 <link>https://www.tanishq.ai/blog/</link>
 <atom:link href="https://www.tanishq.ai/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Dr. Tanishq Abraham&#39;s blog.</description>
-<generator>quarto-1.6.40</generator>
-<lastBuildDate>Tue, 04 Feb 2025 08:00:00 GMT</lastBuildDate>
+<generator>quarto-1.6.42</generator>
+<lastBuildDate>Mon, 03 Mar 2025 08:00:00 GMT</lastBuildDate>
+<item>
+  <title>LLMs in medicine: evaluations, advances, and the future</title>
+  <dc:creator>Tanishq Mathew Abraham</dc:creator>
+  <link>https://www.tanishq.ai/blog/posts/llm-medical-evals.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Large Language Models (LLMs) have shown significant potential for medical applications yet many challenges remain. Let’s talk about the state of LLMs in medicine, how these models are evaluated, how the latest models are improving, and the future of the field.</p>
+<p>Significant progress in the field has been made by Google and Microsoft/OpenAI<sup>1</sup>. Here are some of the models these companies have developed either for medical use-cases or been tested specifically on medical tasks:</p>
+<p>Google: Med-PaLM → Med-PaLM 2 → Med-PaLM M → AMIE and Med-Gemini</p>
+<p>OpenAI: GPT-3 → GPT-4 → GPT-o1-preview<sup>2</sup></p>
+<p>Note that Google’s strategy so far has been to fine-tune their general purpose models for medical use-cases, while Microsoft takes OpenAI general-purpose models and directly applies them to medical tasks.</p>
+<p>The open-source community has also produced models that have been evaluated for medical tasks, including Llama, Mistral, Qwen, and the DeepSeek-series models. In addition, certain models have been specifically fine-tuned for medical applications, such as Meditron <span class="citation" data-cites="chen_meditron-70b_2023">[1]</span>.</p>
+</section>
+<section id="how-llm-medical-capabilities-are-evaluated" class="level2">
+<h2 class="anchored" data-anchor-id="how-llm-medical-capabilities-are-evaluated">How LLM medical capabilities are evaluated</h2>
+<p>Until fairly recently, the prevalent way of evaluating model performance for medical tasks is to report performance on multiple choice medical question answering (MCQA) benchmarks. This practice was popularized by Google’s Med-PaLM paper <span class="citation" data-cites="singhal_large_2023">[2]</span>, which introduced the MultiMedQA benchmark. This benchmark is itself a suite of a few other benchmarks:</p>
+<ul>
+<li><p>PubMedQA <span class="citation" data-cites="jin_pubmedqa_2019">[3]</span> - 1,000 expert-labeled Q&amp;A pairs where a question and corresponding PubMed abstract as context is given, and a yes/maybe/no answer must be produced. Unlike the rest of the tasks in this suite, PubMedQA is a closed-domain Q&amp;A task.</p></li>
+<li><p>MedQA <span class="citation" data-cites="jin_what_2020">[4]</span> - US Medical License Exam (USMLE) questions with 4 or 5 possible answers. Typically, only the 4-option questions are used.</p></li>
+<li><p>MedMCQA <span class="citation" data-cites="pal_medmcqa_2022">[5]</span> - 4-option multiple choice questions from Indian medical entrance examinations, &gt;191k total questions.</p></li>
+<li><p>MMLU <span class="citation" data-cites="hendrycks_measuring_2021">[6]</span> - 4-option multiple choice exam questions from a variety of domains. The following six domains are utilized here:</p>
+<ul>
+<li>Anatomy</li>
+<li>Clinical Knowledge</li>
+<li>College Medicine</li>
+<li>Medical Genetics</li>
+<li>Professional Medicine</li>
+<li>College Biology</li>
+</ul></li>
+</ul>
+<p>Here is a representative example of a QA pair from each dataset:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 0%">
+<col style="width: 84%">
+<col style="width: 13%">
+<col style="width: 0%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dataset</th>
+<th>Question</th>
+<th>Options</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PubMedQA</td>
+<td>Do preoperative statins reduce atrial fibrillation after coronary artery bypass grafting?</td>
+<td>yes or no</td>
+<td>yes</td>
+</tr>
+<tr class="even">
+<td>MedQA</td>
+<td>A 57-year-old man presents to his primary care physician with a 2-month history of right upper and lower extremity weakness. He noticed the weakness when he started falling far more frequently while running errands. Since then, he has had increasing difficulty with walking and lifting objects. His past medical history is significant only for well-controlled hypertension, but he says that some members of his family have had musculoskeletal problems. His right upper extremity shows forearm atrophy and depressed reflexes while his right lower extremity is hypertonic with a positive Babinski sign. Which of the following is most likely associated with the cause of this patient’s symptoms?</td>
+<td>A: HLA-B8 haplotype<br>B: HLA-DR2 haplotype<br>C: Mutation in SOD1<br>D: Mutation in SMN1<br>E: Viral infection</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td>MedMCQA</td>
+<td>Which drug is a selective COX 2 inhibitor?</td>
+<td>A: Celecoxib<br>B: Acetaminophen<br>C: Ketorolac<br>D: Aspirin</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td>MMLU</td>
+<td>Which of the following conditions does not show multifactorial inheritance?</td>
+<td>A: Pyloric stenosis<br>B: Schizophrenia<br>C: Spina bifida (neural tube defects)<br>D: Marfan syndrome</td>
+<td>D</td>
+</tr>
+</tbody>
+</table>
+<p>When papers report “LLM X beats humans on medical license exams” they typically refer to models surpassing baseline human performance on benchmarks such as MedQA and MedMCQA (or also a separate USMLE benchmark).</p>
+<p>Current state-of-the-art LLMs have already achieved very high accuracy on these tasks. For example, Med-Gemini <span class="citation" data-cites="saab_capabilities_2024">[7]</span> achieved 91.1% on MedQA. Many of these benchmarks are being saturated and losing their utility. In fact, some researchers noticed that many of the questions that LLMs get wrong actually have incorrect ground truth labels!</p>
+<p>Based on this, you might assume LLMs have solved medicine. You would be incorrect.</p>
+<p>All of these benchmarks consist of multiple choice questions. When you consult a doctor, do you imagine a list of potential diagnoses floating above your head, waiting for the doctor to simply choose the right one? Unfortunately not! Multiple choice question answering benchmarks can assess if an LLM contains medical knowledge and basic medical capabilities, but it does not accurately represent the actual practice of medicine!</p>
+</section>
+<section id="going-beyond-multiple-choice-question-answering" class="level2">
+<h2 class="anchored" data-anchor-id="going-beyond-multiple-choice-question-answering">Going beyond multiple-choice question answering</h2>
+<p>Over the past year or so, especially with MultiMedQA being saturated by recent well-performing LLMs, researchers have become acutely aware of the challenges of current medical MCQA benchmarks. For this reason, researchers have started evaluating LLMs in new ways that they hope better align with actual medical use-cases.</p>
+<p>For example, at the end of 2023, Google published a paper on how well a medically finetuned variant of PaLM-2 (distinct from Med-PaLM 2) performed on differential diagnoses using a new benchmark <span class="citation" data-cites="mcduff_towards_2023">[8]</span>. New England Journal of Medicine (NEJM) Clinicopathological Conference Case Reports are lightly edited transcriptions of the clinicopathological conferences of the Mass General Hospital. In a clinicopathological conference, a patient case (medical history, test results, etc.) is described and an expert physician is asked to provide a differential diagnosis and a final diagnosis. These cases are published regularly in the NEJM as “diagnostic puzzles”. Many papers are now using these cases to evaluate LLMs, although different cases are used between different studies.</p>
+<p>Google’s LLM achieved 59.1% accuracy in including the correct diagnosis somewhere in its top 10 differential diagnoses—better than unassisted doctors at 33.6%. When doctors used the LLM as an assistant, they achieved 51.7% accuracy versus 44.4% with just search tools.</p>
+<p>This certainly seems very promising, but we shouldn’t read too much into these results. Let us consider how there remain weaknesses to this benchmark. All the necessary information to make the diagnosis is provided upfront and there is no back-and-forth between patient and physician. Real medical practice requires gathering information dynamically from patients, and dealing with uncertainty, which these carefully structured benchmarks cannot evaluate.</p>
+<p>Researchers recognized this gap and several research groups have now developed novel frameworks for evaluating LLMs for clinical settings, each taking different approaches to attempt to simulate more realistic medical practices:</p>
+<p>CRAFT-MD (Oct 2023) <span class="citation" data-cites="johri_evaluation_2025">[9]</span>, developed by researchers at Harvard Medical School and Stanford, introduced a framework using three AI agents: a patient agent, doctor agent (the LLM being evaluated), and a grader agent. Their evaluation used three main data sources: 1,800 case vignettes from MedQA dataset, 100 questions from an online medical question bank focused on dermatology, and 100 newly generated private dermatology cases created by dermatologists. The researchers specifically focused on dermatology to evaluate how well LLMs could conduct nuanced conversations about symptoms, progression, and medical history. Their evaluation revealed that diagnostic accuracy drops significantly when LLMs need to gather information through conversation rather than being presented with all information upfront. For example, GPT-4’s accuracy dropped from 82% to 62.7% when moving from static case descriptions to conversations. They also examined how biases affected performance, finding that while GPT-4 was relatively robust, other models like Mixtral-8x7B showed significant performance degradation when biases were introduced.</p>
+<p>AMIE (Jan 2024) <span class="citation" data-cites="tu_towards_2024">[10]</span>, developed by Google DeepMind, took a different approach by conducting a randomized, double-blind crossover study comparing their LLM system against primary care physicians using standardized patient actors. The study used 149 scenario packs sourced from multiple regions: 75 from India, 60 from Canada, and 14 from the UK. These scenarios covered conditions across multiple specialties including cardiovascular, respiratory, gastroenterology, neurology, and obstetrics/gynecology, though notably excluded pediatric and psychiatric cases. The study revealed that AMIE outperformed physicians on 28 of 32 evaluation axes according to specialist physicians and 24 of 26 axes according to patient actors. However, the authors note important limitations, particularly that the text-chat interface may have disadvantaged human physicians who are more accustomed to in-person or video consultations.</p>
+<p>AgentClinic (Oct 2024) <span class="citation" data-cites="schmidgall_agentclinic_2024">[11]</span>, from researchers at Stanford and Johns Hopkins, introduced a broader framework supporting multiple medical specialties, multiple languages, and multimodal inputs like medical imaging. Their evaluation environment drew from several datasets: the MedQA USMLE dataset for general medical scenarios, MIMIC-IV database for realistic patient cases, NEJM case challenges (120 cases) for multimodal evaluation, and MedMCQA dataset for specialist cases across 9 medical specialties. They also created multilingual versions in 7 languages (Chinese, Hindi, Korean, Spanish, French, Persian, and English). Their evaluation showed Claude-3.5 achieved the highest performance with 62.1% accuracy on their benchmark, while also demonstrating that different models varied significantly in their ability to utilize tools like experiential learning and adaptive retrieval.</p>
+<p>MIMIC-CDM (Sept 2024) <span class="citation" data-cites="hager_evaluation_2024">[12]</span>, from researchers at Technical University of Munich and Imperial College London demonstrated that current LLMs still face significant challenges in real clinical settings. Using a comprehensive dataset of 2,400 real patient cases from the MIMIC database, focused on four common abdominal pathologies (appendicitis, cholecystitis, diverticulitis, and pancreatitis), they showed that LLMs struggled with guideline adherence and lab result interpretation. Each case included comprehensive medical data: admission info, lab events, radiology reports, diagnoses, and discharge summaries. The study found that even state-of-the-art models performed significantly worse than physicians across all pathologies, with accuracy dropping further when models had to gather information themselves rather than having it provided upfront.</p>
+<p>Physicians only spend roughly 27% of their time performing direct clinical care duties with the rest being spent on laborious documentation and administrative tasks, so it’s important to also evaluate LLMs on these complex administrative tasks for realistic/practical medical applications. MedAgentBench (Feb 2025) <span class="citation" data-cites="jiang_medagentbench_2025">[13]</span> developed by Stanford researchers is a comprehensive benchmark designed to evaluate the agent capabilities of LLMs to work with realistic electronic health records. The MedAgentBench framework comprises 300 clinically-derived tasks across 10 categories, utilizing realistic profiles of 100 patients with over 700,000 records. The authors show that while current LLMs like Claude 3.5 Sonnet v2 can achieve success rates close to 70%, substantial challenges remain—especially in executing action-based tasks—highlighting the need for further advancements before such systems can be reliably integrated into clinical workflows.</p>
+<p>Overall, these different approaches to evaluation have helped expose the current limitations of LLMs (poor performance in more realistic patient-doctor interactions) in medical applications while also highlighting areas for improvement. While multiple-choice medical exam benchmarks suggested near-human or superhuman performance, these more realistic evaluations reveal that LLMs still fall short of clinical practice in many ways.</p>
+<p>Before moving on, it’s worth noting two things:</p>
+<ol type="1">
+<li><p>While it seems like these alternative (often agentic) approaches are more useful now for highlighting the limitations of current LLMs, this doesn’t mean MCQA benchmarks are completely over. New, more challenging and unsaturated MCQA benchmarks can be constructed. For example, researchers at Tsinghua University included questions from specialty board exams for specialized scenarios with easy and highly similar questions filtered out to construct the challenging MedXpertQA benchmark (Jan 2025) <span class="citation" data-cites="zuo_medxpertqa_2025">[14]</span>.</p></li>
+<li><p>LLM limitations can also be evaluated with more unrealistic toy questions that specifically evaluate the model’s flexible reasoning abilities or capacity to identify knowledge gaps. Two good examples of this are MetaMedQA (Jan 2025) <span class="citation" data-cites="griot_large_2025">[15]</span> and M-ARC (Feb 2025) <span class="citation" data-cites="kim_limitations_2025">[16]</span>.</p></li>
+</ol>
+</section>
+<section id="the-future-of-llm-medical-capabilities" class="level2">
+<h2 class="anchored" data-anchor-id="the-future-of-llm-medical-capabilities">The future of LLM medical capabilities</h2>
+<p>I think it’s becoming clear that the challenges of general purpose LLMs also apply to medical LLMs. Namely, addressing reasoning is extremely important for medical tasks as well. My hypothesis is that the progression and development of reasoning models will address many of the limitations of LLMs in medicine, supported by the fact that Microsoft reports o1-preview achieved SoTA on MultiMedQA <span class="citation" data-cites="nori_medprompt_2024">[17]</span>. What’s particularly interesting is that models like o1-preview can spend more or less compute “thinking” about a problem, and spending more reasoning tokens tends to improve performance!</p>
+<p><img src="https://www.tanishq.ai/blog/posts/GhUlR2fXIAAbUZa.jpg" class="img-fluid"></p>
+<p>Another study instead analyzes how well o1-preview performs on case studies like the NEJM case challenges <span class="citation" data-cites="brodeur_superhuman_2024">[18]</span>. Here, responses by o1-preview were evaluated by two physicians from a score of 0 (no suggestions close to target diagnosis) to 5 (contains the exact target diagnosis) with the model including the correct diagnosis in its differential in 78.3% of cases (with the correct diagnosis being the top suggestion 52% of the time), and significantly outperforming GPT-4 on a subset of 70 cases where o1-preview achieved 88.6% accuracy compared to GPT-4’s 72.9%.</p>
+<p>So what’s next? Well, so far there hasn’t been a study of o1 in the agentic patient-doctor scenario environments as I previously discussed, so that’s a clear next step. Additionally, it will be interesting to see how o3 models perform. The open-source community also has developed their own reasoning-enhanced LLMs (ex: DeepSeek-R1), and it will be valuable to see how well these o1 replication models perform on medical benchmarks.</p>
+<p>Finally, this is still a very narrow look at how foundation models can be applied to medicine. Specifically, most of the analyses discussed do not include processing of multiple modalities like medical images, lab tests, etc. which is an important aspect of clinical care. Instead, analyses of these tests are usually described in text and provided to the LLM. Additionally, much of the research focuses on evaluating general-purpose LLMs. I believe we need to go beyond general-purpose LLMs for medicine and instead focus on medical-specific multimodal models. Of course, this will necessitate new evaluations. I will discuss both of these points in future blog posts.</p>
+<p>The trajectory of LLMs in medicine demonstrates both impressive advances and important limitations. While early evaluations on multiple-choice medical exams suggested near-superhuman performance, newer frameworks like CRAFT-MD, AMIE, and AgentClinic have exposed crucial gaps between simplistic benchmark performance and real clinical capabilities. The emergence of reasoning-enhanced models offers promise, with their ability to achieve state-of-the-art results on both traditional benchmarks and complex case studies suggesting that enhanced reasoning capabilities may be key to bridging this gap.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Moving forward, the field must focus on two key challenges: evaluating these reasoning-enhanced models in realistic clinical scenarios and developing true multimodal medical AI systems capable of processing and reasoning about diverse clinical data modalities. As we continue to refine both our models and evaluation methods, the goal remains clear: creating AI systems that can genuinely support and enhance medical practice rather than just excel at standardized tests.</p>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p>Thank you to Paul Scotti, Ph.D.&nbsp;Jean-Benoit Delbrouck, Ph.D., and Alireza Nejati, Ph.D.&nbsp;for review and feedback.</p>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0">
+<div id="ref-chen_meditron-70b_2023" class="csl-entry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">Z. Chen <em>et al.</em>, <span>“<span>MEDITRON</span>-<span>70B</span>: <span>Scaling</span> <span>Medical</span> <span>Pretraining</span> for <span>Large</span> <span>Language</span> <span>Models</span>.”</span> arXiv, Nov. 2023. doi: <a href="https://doi.org/10.48550/arXiv.2311.16079">10.48550/arXiv.2311.16079</a>. Available: <a href="http://arxiv.org/abs/2311.16079">http://arxiv.org/abs/2311.16079</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-singhal_large_2023" class="csl-entry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">K. Singhal <em>et al.</em>, <span>“Large language models encode clinical knowledge,”</span> <em>Nature</em>, vol. 620, no. 7972, pp. 172–180, Aug. 2023, doi: <a href="https://doi.org/10.1038/s41586-023-06291-2">10.1038/s41586-023-06291-2</a>. Available: <a href="https://www.nature.com/articles/s41586-023-06291-2">https://www.nature.com/articles/s41586-023-06291-2</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-jin_pubmedqa_2019" class="csl-entry">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">Q. Jin, B. Dhingra, Z. Liu, W. Cohen, and X. Lu, <span>“<span>PubMedQA</span>: <span>A</span> <span>Dataset</span> for <span>Biomedical</span> <span>Research</span> <span>Question</span> <span>Answering</span>,”</span> in <em>Proceedings of the 2019 <span>Conference</span> on <span>Empirical</span> <span>Methods</span> in <span>Natural</span> <span>Language</span> <span>Processing</span> and the 9th <span>International</span> <span>Joint</span> <span>Conference</span> on <span>Natural</span> <span>Language</span> <span>Processing</span> (<span>EMNLP</span>-<span>IJCNLP</span>)</em>, K. Inui, J. Jiang, V. Ng, and X. Wan, Eds., Hong Kong, China: Association for Computational Linguistics, Nov. 2019, pp. 2567–2577. doi: <a href="https://doi.org/10.18653/v1/D19-1259">10.18653/v1/D19-1259</a>. Available: <a href="https://aclanthology.org/D19-1259/">https://aclanthology.org/D19-1259/</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-jin_what_2020" class="csl-entry">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">D. Jin, E. Pan, N. Oufattole, W.-H. Weng, H. Fang, and P. Szolovits, <span>“What <span>Disease</span> does this <span>Patient</span> <span>Have</span>? <span>A</span> <span>Large</span>-scale <span>Open</span> <span>Domain</span> <span>Question</span> <span>Answering</span> <span>Dataset</span> from <span>Medical</span> <span>Exams</span>.”</span> arXiv, Sep. 2020. doi: <a href="https://doi.org/10.48550/arXiv.2009.13081">10.48550/arXiv.2009.13081</a>. Available: <a href="http://arxiv.org/abs/2009.13081">http://arxiv.org/abs/2009.13081</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-pal_medmcqa_2022" class="csl-entry">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">A. Pal, L. K. Umapathi, and M. Sankarasubbu, <span>“<span>MedMCQA</span> : <span>A</span> <span>Large</span>-scale <span>Multi</span>-<span>Subject</span> <span>Multi</span>-<span>Choice</span> <span>Dataset</span> for <span>Medical</span> domain <span>Question</span> <span>Answering</span>.”</span> arXiv, Mar. 2022. doi: <a href="https://doi.org/10.48550/arXiv.2203.14371">10.48550/arXiv.2203.14371</a>. Available: <a href="http://arxiv.org/abs/2203.14371">http://arxiv.org/abs/2203.14371</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-hendrycks_measuring_2021" class="csl-entry">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">D. Hendrycks <em>et al.</em>, <span>“Measuring <span>Massive</span> <span>Multitask</span> <span>Language</span> <span>Understanding</span>.”</span> arXiv, Jan. 2021. doi: <a href="https://doi.org/10.48550/arXiv.2009.03300">10.48550/arXiv.2009.03300</a>. Available: <a href="http://arxiv.org/abs/2009.03300">http://arxiv.org/abs/2009.03300</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-saab_capabilities_2024" class="csl-entry">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">K. Saab <em>et al.</em>, <span>“Capabilities of <span>Gemini</span> <span>Models</span> in <span>Medicine</span>.”</span> arXiv, May 2024. doi: <a href="https://doi.org/10.48550/arXiv.2404.18416">10.48550/arXiv.2404.18416</a>. Available: <a href="http://arxiv.org/abs/2404.18416">http://arxiv.org/abs/2404.18416</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-mcduff_towards_2023" class="csl-entry">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">D. McDuff <em>et al.</em>, <span>“Towards <span>Accurate</span> <span>Differential</span> <span>Diagnosis</span> with <span>Large</span> <span>Language</span> <span>Models</span>.”</span> arXiv, Nov. 2023. doi: <a href="https://doi.org/10.48550/arXiv.2312.00164">10.48550/arXiv.2312.00164</a>. Available: <a href="http://arxiv.org/abs/2312.00164">http://arxiv.org/abs/2312.00164</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-johri_evaluation_2025" class="csl-entry">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">S. Johri <em>et al.</em>, <span>“An evaluation framework for clinical use of large language models in patient interaction tasks,”</span> <em>Nature Medicine</em>, vol. 31, no. 1, pp. 77–86, Jan. 2025, doi: <a href="https://doi.org/10.1038/s41591-024-03328-5">10.1038/s41591-024-03328-5</a>. Available: <a href="https://www.nature.com/articles/s41591-024-03328-5">https://www.nature.com/articles/s41591-024-03328-5</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-tu_towards_2024" class="csl-entry">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">T. Tu <em>et al.</em>, <span>“Towards <span>Conversational</span> <span>Diagnostic</span> <span>AI</span>.”</span> arXiv, Jan. 2024. doi: <a href="https://doi.org/10.48550/arXiv.2401.05654">10.48550/arXiv.2401.05654</a>. Available: <a href="http://arxiv.org/abs/2401.05654">http://arxiv.org/abs/2401.05654</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-schmidgall_agentclinic_2024" class="csl-entry">
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">S. Schmidgall, R. Ziaei, C. Harris, E. Reis, J. Jopling, and M. Moor, <span>“<span>AgentClinic</span>: A multimodal agent benchmark to evaluate <span>AI</span> in simulated clinical environments.”</span> arXiv, Oct. 2024. doi: <a href="https://doi.org/10.48550/arXiv.2405.07960">10.48550/arXiv.2405.07960</a>. Available: <a href="http://arxiv.org/abs/2405.07960">http://arxiv.org/abs/2405.07960</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-hager_evaluation_2024" class="csl-entry">
+<div class="csl-left-margin">[12] </div><div class="csl-right-inline">P. Hager <em>et al.</em>, <span>“Evaluation and mitigation of the limitations of large language models in clinical decision-making,”</span> <em>Nature Medicine</em>, vol. 30, no. 9, pp. 2613–2622, Sep. 2024, doi: <a href="https://doi.org/10.1038/s41591-024-03097-1">10.1038/s41591-024-03097-1</a>. Available: <a href="https://www.nature.com/articles/s41591-024-03097-1">https://www.nature.com/articles/s41591-024-03097-1</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-jiang_medagentbench_2025" class="csl-entry">
+<div class="csl-left-margin">[13] </div><div class="csl-right-inline">Y. Jiang <em>et al.</em>, <span>“<span>MedAgentBench</span>: <span>A</span> <span>Realistic</span> <span>Virtual</span> <span>EHR</span> <span>Environment</span> to <span>Benchmark</span> <span>Medical</span> <span>LLM</span> <span>Agents</span>.”</span> arXiv, Feb. 2025. doi: <a href="https://doi.org/10.48550/arXiv.2501.14654">10.48550/arXiv.2501.14654</a>. Available: <a href="http://arxiv.org/abs/2501.14654">http://arxiv.org/abs/2501.14654</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-zuo_medxpertqa_2025" class="csl-entry">
+<div class="csl-left-margin">[14] </div><div class="csl-right-inline">Y. Zuo <em>et al.</em>, <span>“<span>MedXpertQA</span>: <span>Benchmarking</span> <span>Expert</span>-<span>Level</span> <span>Medical</span> <span>Reasoning</span> and <span>Understanding</span>.”</span> arXiv, Feb. 2025. doi: <a href="https://doi.org/10.48550/arXiv.2501.18362">10.48550/arXiv.2501.18362</a>. Available: <a href="http://arxiv.org/abs/2501.18362">http://arxiv.org/abs/2501.18362</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-griot_large_2025" class="csl-entry">
+<div class="csl-left-margin">[15] </div><div class="csl-right-inline">M. Griot, C. Hemptinne, J. Vanderdonckt, and D. Yuksel, <span>“Large <span>Language</span> <span>Models</span> lack essential metacognition for reliable medical reasoning,”</span> <em>Nature Communications</em>, vol. 16, no. 1, p. 642, Jan. 2025, doi: <a href="https://doi.org/10.1038/s41467-024-55628-6">10.1038/s41467-024-55628-6</a>. Available: <a href="https://www.nature.com/articles/s41467-024-55628-6">https://www.nature.com/articles/s41467-024-55628-6</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-kim_limitations_2025" class="csl-entry">
+<div class="csl-left-margin">[16] </div><div class="csl-right-inline">J. Kim, A. Podlasek, K. Shidara, F. Liu, A. Alaa, and D. Bernardo, <span>“Limitations of <span>Large</span> <span>Language</span> <span>Models</span> in <span>Clinical</span> <span>Problem</span>-<span>Solving</span> <span>Arising</span> from <span>Inflexible</span> <span>Reasoning</span>.”</span> arXiv, Feb. 2025. doi: <a href="https://doi.org/10.48550/arXiv.2502.04381">10.48550/arXiv.2502.04381</a>. Available: <a href="http://arxiv.org/abs/2502.04381">http://arxiv.org/abs/2502.04381</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-nori_medprompt_2024" class="csl-entry">
+<div class="csl-left-margin">[17] </div><div class="csl-right-inline">H. Nori <em>et al.</em>, <span>“From <span>Medprompt</span> to o1: <span>Exploration</span> of <span>Run</span>-<span>Time</span> <span>Strategies</span> for <span>Medical</span> <span>Challenge</span> <span>Problems</span> and <span>Beyond</span>.”</span> arXiv, Nov. 2024. doi: <a href="https://doi.org/10.48550/arXiv.2411.03590">10.48550/arXiv.2411.03590</a>. Available: <a href="http://arxiv.org/abs/2411.03590">http://arxiv.org/abs/2411.03590</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+<div id="ref-brodeur_superhuman_2024" class="csl-entry">
+<div class="csl-left-margin">[18] </div><div class="csl-right-inline">P. G. Brodeur <em>et al.</em>, <span>“Superhuman performance of a large language model on the reasoning tasks of a physician.”</span> arXiv, Dec. 2024. doi: <a href="https://doi.org/10.48550/arXiv.2412.10849">10.48550/arXiv.2412.10849</a>. Available: <a href="http://arxiv.org/abs/2412.10849">http://arxiv.org/abs/2412.10849</a>. [Accessed: Mar. 03, 2025]</div>
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Even though Microsoft and OpenAI are separate, I keep them together because so far OpenAI hasn’t published any separate medical AI research while Microsoft publishes their evaluations of OpenAI models on medical tasks, although that may change in the future with OpenAI’s new health AI team.↩︎</p></li>
+<li id="fn2"><p>o1 and o3-mini have not been evaluated on medical tasks yet, as far as I know.↩︎</p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{abraham2025,
+  author = {Abraham, Tanishq Mathew},
+  title = {LLMs in Medicine: Evaluations, Advances, and the Future},
+  date = {2025-03-03},
+  url = {https://www.tanishq.ai/blog/posts/llm-medical-evals.html},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-abraham2025" class="csl-entry quarto-appendix-citeas">
+<div class="">T.
+M. Abraham, <span>“LLMs in medicine: evaluations, advances, and the
+future,”</span> Mar. 03, 2025. Available: <a href="https://www.tanishq.ai/blog/posts/llm-medical-evals.html">https://www.tanishq.ai/blog/posts/llm-medical-evals.html</a></div>
+</div></div></section></div> ]]></description>
+  <category>LLMs</category>
+  <category>deep learning</category>
+  <category>medical AI</category>
+  <guid>https://www.tanishq.ai/blog/posts/llm-medical-evals.html</guid>
+  <pubDate>Mon, 03 Mar 2025 08:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Debunking DeepSeek Delusions</title>
   <dc:creator>Tanishq Mathew Abraham, Ph.D.</dc:creator>

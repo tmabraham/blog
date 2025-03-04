@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.tanishq.ai/blog/posts/deepseek-delusions.html</loc>
-    <lastmod>2025-02-05T01:28:23.802Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tanishq.ai/blog/posts/2021-11-16-gradio-huggingface.html</loc>
-    <lastmod>2023-09-28T13:36:43.202Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tanishq.ai/blog/posts/2021-03-02-noisy-imagenette.html</loc>
-    <lastmod>2023-09-28T13:36:43.083Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tanishq.ai/blog/index.html</loc>
-    <lastmod>2023-09-28T13:36:43.033Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tanishq.ai/blog/about.html</loc>
-    <lastmod>2023-09-28T13:36:39.009Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tanishq.ai/blog/llm-medical-evals.html</loc>
-    <lastmod>2025-02-21T13:20:32.913Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.tanishq.ai/blog/posts/2021-07-14-GitHub-Copilot.html</loc>
-    <lastmod>2023-09-28T13:36:43.160Z</lastmod>
+    <loc>https://www.tanishq.ai/blog/posts/llm-medical-evals.html</loc>
+    <lastmod>2025-03-03T14:13:18.442Z</lastmod>
   </url>
   <url>
     <loc>https://www.tanishq.ai/blog/posts/ddpo.html</loc>
-    <lastmod>2023-09-28T13:36:43.677Z</lastmod>
+    <lastmod>2025-03-03T13:10:17.867Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tanishq.ai/blog/posts/2021-07-14-GitHub-Copilot.html</loc>
+    <lastmod>2025-03-03T13:10:17.500Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tanishq.ai/blog/index.html</loc>
+    <lastmod>2025-03-03T13:10:17.467Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tanishq.ai/blog/about.html</loc>
+    <lastmod>2025-03-03T13:10:17.467Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tanishq.ai/blog/posts/2021-03-02-noisy-imagenette.html</loc>
+    <lastmod>2025-03-03T13:10:17.495Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tanishq.ai/blog/posts/2021-11-16-gradio-huggingface.html</loc>
+    <lastmod>2025-03-03T13:10:17.504Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.tanishq.ai/blog/posts/deepseek-delusions.html</loc>
+    <lastmod>2025-03-03T13:24:05.633Z</lastmod>
   </url>
 </urlset>
