@@ -10,7 +10,7 @@
 <atom:link href="https://www.tanishq.ai/blog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Dr. Tanishq Abraham&#39;s blog.</description>
 <generator>quarto-1.6.42</generator>
-<lastBuildDate>Mon, 03 Mar 2025 08:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 04 Mar 2025 08:00:00 GMT</lastBuildDate>
 <item>
   <title>LLMs in medicine: evaluations, advances, and the future</title>
   <dc:creator>Tanishq Mathew Abraham</dc:creator>
@@ -200,20 +200,20 @@
 </section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{abraham2025,
   author = {Abraham, Tanishq Mathew},
   title = {LLMs in Medicine: Evaluations, Advances, and the Future},
-  date = {2025-03-03},
+  date = {2025-03-04},
   url = {https://www.tanishq.ai/blog/posts/llm-medical-evals.html},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-abraham2025" class="csl-entry quarto-appendix-citeas">
 <div class="">T.
 M. Abraham, <span>“LLMs in medicine: evaluations, advances, and the
-future,”</span> Mar. 03, 2025. Available: <a href="https://www.tanishq.ai/blog/posts/llm-medical-evals.html">https://www.tanishq.ai/blog/posts/llm-medical-evals.html</a></div>
+future,”</span> Mar. 04, 2025. Available: <a href="https://www.tanishq.ai/blog/posts/llm-medical-evals.html">https://www.tanishq.ai/blog/posts/llm-medical-evals.html</a></div>
 </div></div></section></div> ]]></description>
   <category>LLMs</category>
   <category>deep learning</category>
   <category>medical AI</category>
   <guid>https://www.tanishq.ai/blog/posts/llm-medical-evals.html</guid>
-  <pubDate>Mon, 03 Mar 2025 08:00:00 GMT</pubDate>
+  <pubDate>Tue, 04 Mar 2025 08:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Debunking DeepSeek Delusions</title>
