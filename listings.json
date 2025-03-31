@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/sophont.html",
       "/posts/llm-medical-evals.html",
       "/posts/deepseek-delusions.html",
       "/posts/ddpo.html",
