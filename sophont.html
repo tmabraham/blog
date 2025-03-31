@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tanishq Mathew Abraham">
+<meta name="author" content="Paul Scotti">
+<meta name="dcterms.date" content="2025-03-31">
+<meta name="description" content="TL;DR: Multimodal medical foundation models are the future of healthcare. We need a DeepSeek-like company to build them. We have founded Sophont to do so.">
+
+<title>The Medical AI Manifesto - Introducing Sophont – Dr.&nbsp;Tanishq Abraham</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-142b83248fff05c40a104f887ecaea57.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LRXD97FB1E"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-LRXD97FB1E', { 'anonymize_ip': true});
+</script>
+<meta name="quarto:status" content="draft">
+
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="The Medical AI Manifesto - Introducing Sophont – Dr.&nbsp;Tanishq Abraham">
+<meta property="og:description" content="TL;DR: Multimodal medical foundation models are the future of healthcare. We need a DeepSeek-like company to build them. We have founded Sophont to do so.">
+<meta property="og:image" content="https://www.tanishq.ai/blog/elephant_parable.png">
+<meta property="og:site_name" content="Dr. Tanishq Abraham">
+<meta property="og:image:height" content="2575">
+<meta property="og:image:width" content="3025">
+<meta name="twitter:title" content="The Medical AI Manifesto - Introducing Sophont – Dr.&nbsp;Tanishq Abraham">
+<meta name="twitter:description" content="TL;DR: Multimodal medical foundation models are the future of healthcare. We need a DeepSeek-like company to build them. We have founded Sophont to do so.">
+<meta name="twitter:image" content="https://www.tanishq.ai/blog/elephant_parable.png">
+<meta name="twitter:image-height" content="2575">
+<meta name="twitter:image-width" content="3025">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Dr.&nbsp;Tanishq Abraham</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/tmabraham"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/iScienceLuvr"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/tanishq-abraham-iscienceluvr/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="./index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#multimodal-foundation-models-are-the-future-of-medical-ai-and-medical-ai-is-the-future-of-healthcare." id="toc-multimodal-foundation-models-are-the-future-of-medical-ai-and-medical-ai-is-the-future-of-healthcare." class="nav-link active" data-scroll-target="#multimodal-foundation-models-are-the-future-of-medical-ai-and-medical-ai-is-the-future-of-healthcare.">Multimodal foundation models are the future of medical AI and medical AI is the future of healthcare.</a></li>
+  <li><a href="#open-source-is-necessary-for-medicine" id="toc-open-source-is-necessary-for-medicine" class="nav-link" data-scroll-target="#open-source-is-necessary-for-medicine">Open-source is necessary for medicine</a></li>
+  <li><a href="#generalist-ai-vs.-medical-specific-ai" id="toc-generalist-ai-vs.-medical-specific-ai" class="nav-link" data-scroll-target="#generalist-ai-vs.-medical-specific-ai">Generalist AI vs.&nbsp;medical-specific AI</a></li>
+  <li><a href="#the-bitter-lesson-and-medical-foundation-models" id="toc-the-bitter-lesson-and-medical-foundation-models" class="nav-link" data-scroll-target="#the-bitter-lesson-and-medical-foundation-models">The bitter lesson and medical foundation models</a></li>
+  <li><a href="#truly-multimodal-ai-is-the-future-of-medicine" id="toc-truly-multimodal-ai-is-the-future-of-medicine" class="nav-link" data-scroll-target="#truly-multimodal-ai-is-the-future-of-medicine">Truly multimodal AI is the future of medicine</a></li>
+  <li><a href="#biomedical-foundation-models-can-enable-new-possibilities-in-medicine-and-research" id="toc-biomedical-foundation-models-can-enable-new-possibilities-in-medicine-and-research" class="nav-link" data-scroll-target="#biomedical-foundation-models-can-enable-new-possibilities-in-medicine-and-research">Biomedical foundation models can enable new possibilities in medicine and research</a></li>
+  <li><a href="#ai-must-be-ready-to-enable-tomorrows-healthcare" id="toc-ai-must-be-ready-to-enable-tomorrows-healthcare" class="nav-link" data-scroll-target="#ai-must-be-ready-to-enable-tomorrows-healthcare">AI must be ready to enable tomorrow’s healthcare</a></li>
+  <li><a href="#what-do-we-need" id="toc-what-do-we-need" class="nav-link" data-scroll-target="#what-do-we-need">What do we need?</a></li>
+  <li><a href="#introducing-sophont" id="toc-introducing-sophont" class="nav-link" data-scroll-target="#introducing-sophont">Introducing Sophont</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">The Medical AI Manifesto - Introducing Sophont</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">medical AI</div>
+    <div class="quarto-category">Sophont</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    TL;DR: Multimodal medical foundation models are the future of healthcare. We need a DeepSeek-like company to build them. We have founded Sophont to do so.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p><a href="https://tanishq.ai">Tanishq Mathew Abraham, Ph.D.</a> </p>
+             <p><a href="https://www.paulscotti.com">Paul Scotti, Ph.D.</a> </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 31, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Let’s face it: the healthcare system is broken. Issues include overworked care staff and a system that generates massive amounts of data—growing larger every year—making it impossible to track patient health closely or combine data from all sources in an integrated plan for care and diagnosis. Humans can’t process it all alone. AI is the clear solution, with the potential to augment and enhance doctors’ ability to provide care.</p>
+<section id="multimodal-foundation-models-are-the-future-of-medical-ai-and-medical-ai-is-the-future-of-healthcare." class="level2">
+<h2 class="anchored" data-anchor-id="multimodal-foundation-models-are-the-future-of-medical-ai-and-medical-ai-is-the-future-of-healthcare.">Multimodal foundation models are the future of medical AI and medical AI is the future of healthcare.</h2>
+<p>To be fair, AI is already being used in healthcare: in 2023, 223 AI-powered medical devices/software were <a href="https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-and-machine-learning-aiml-enabled-medical-devices">approved by the FDA</a>, as part of a clearly exponential trend. However, currently deployed medical AI models are inflexible and rigid, suited for narrow tasks focused on individual data modalities. These approaches succumb to the parable of the blind men and the elephant: The blind men are unimodal medical models and the patient is the elephant.</p>
+<p><img src="elephant_parable.png" class="img-fluid"></p>
+<p>We need broadly useful models that can communicate information across all the relevant medical modalities. LLMs are already proving to be broadly useful for a variety of purposes from <a href="https://arxiv.org/abs/2312.00164">suggesting differential diagnoses</a> to writing <a href="https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2804309">more empathetic responses to patient questions</a>, with patients often <a href="https://www.today.com/health/mom-chatgpt-diagnosis-pain-rcna101843">reporting</a> better diagnoses from models like ChatGPT than through the healthcare system. <a href="https://x.com/tsarnick/status/1847065896264794576">Even doctors are already using ChatGPT</a>! Outside of LLMs, unimodal medical foundation models have been improving analysis of tissue slides, chest X-rays, and more. <strong>Our vision is to merge highly performant, specialized medical foundation models into a single holistic multimodal foundation model.</strong></p>
+<p>To reach this goal, I propose these three critical elements for progressing medical AI research and deployment:</p>
+<ol type="1">
+<li><p>open research is critical for medical domains</p></li>
+<li><p>generalist models like ChatGPT are insufficient, models must be carefully trained with medical in mind</p></li>
+<li><p>“truly” multimodal AI is the future</p></li>
+</ol>
+</section>
+<section id="open-source-is-necessary-for-medicine" class="level2">
+<h2 class="anchored" data-anchor-id="open-source-is-necessary-for-medicine">Open-source is necessary for medicine</h2>
+<p>Even though models like ChatGPT are not FDA-approved, much of the use of LLMs or foundation models in medicine right now is happening under the understanding that the “practice of medicine” is not regulated by the FDA, meaning leeway is given to doctors to utilize the tools they feel allows them to give the best care to patients. Of course, these tools cannot be marketed for medical diagnosis or treatment, otherwise they need FDA approval, and it must be clear they don’t replace professional medical judgment.</p>
+<p>Instead it’s been easier for AI tools sold to doctors to focus on administrative tasks, and there are indeed many companies focusing on this direction, like Abridge Health, Suki AI, Nabla, and Nuance Communications. While the FDA has not released specific guidance and is likely still developing a regulatory framework for LLMs in healthcare, it is not unreasonable that the FDA will impose the following requirements:</p>
+<ol type="1">
+<li><p>Transparency</p></li>
+<li><p>Explainability</p></li>
+<li><p>Privacy</p></li>
+<li><p>Consistency</p></li>
+</ol>
+<p>Current AI solutions often fail to meet these requirements. For example, let’s look at ChatGPT or other related <em>proprietary</em> LLM services:</p>
+<ol type="1">
+<li><p>There is no transparency regarding the kind of data the model is trained on, the sort of biases it may exhibit, etc.</p></li>
+<li><p>Since no model weights are available, most interpretability methods for LLMs are not applicable. Only prompt-based interpretability methods which are extremely brittle can be applied.</p></li>
+<li><p>OpenAI does have privacy provisions but this may not be true for every LLM product. Even if this is true, some healthcare providers are not comfortable sending personal health information (PHI) to the cloud, and need on-premise solutions instead.</p></li>
+<li><p>LLMs are continuously being updated (especially through RLHF), leading to unexpected changes in behavior.</p></li>
+</ol>
+<p>For these reasons, I am instead bullish on <em>open-source</em> AI for healthcare:</p>
+<ol type="1">
+<li><p>Open-source AI tools can be more easily audited due to the availability of model weights, dataset information, etc. This enables complete transparency that builds trust all the stakeholders involved, from doctors and patients to regulatory bodies</p></li>
+<li><p>Interpretability methods can be more easily applied to open-source models</p></li>
+<li><p>Open-source models can be deployed locally on-premises</p></li>
+<li><p>Models can be static, resulting in more consistent and reliable outputs</p></li>
+</ol>
+</section>
+<section id="generalist-ai-vs.-medical-specific-ai" class="level2">
+<h2 class="anchored" data-anchor-id="generalist-ai-vs.-medical-specific-ai">Generalist AI vs.&nbsp;medical-specific AI</h2>
+<p>An ongoing question surrounding foundation models in medicine is whether generalist models trained on massive amounts of data from the web are enough or if medical AI needs separate models specially trained to handle medical inputs.</p>
+<p>On one hand, with many clinical NLP-related tasks, generalist LLMs <a href="https://tanishq.ai/blog/posts/llm-medical-evals.html">have shown impressive advances</a>, often beating medical-specific LLMs. On the other hand, some medical modalities have unique data formats that generalist foundation models will not have seen or are unable to process. For example, CT scans are three-dimensional images, while digotized tissue slides are gigapixel images, and different architectures and training datasets will be needed. Additionally, while text about medical practice may be present across web crawls that generalist foundation models are trained on, large datasets of other medical modalities are typically not in the pretraining corpora of these models (such data is typically private or gated).</p>
+<p>For this reason, foundation models trained specifically for medicine are needed.</p>
+</section>
+<section id="the-bitter-lesson-and-medical-foundation-models" class="level2">
+<h2 class="anchored" data-anchor-id="the-bitter-lesson-and-medical-foundation-models">The bitter lesson and medical foundation models</h2>
+<p>Building medical-specific models doesn’t mean that we develop models with architectural and training approaches highly specific to the medical domain. Sure, the medical domain has some unique challenges, but <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">the bitter lesson</a> is also true: approaches that can be easily scaled with more compute and data will usually win.</p>
+<p>Unfortunately, this is not the approach currently taken by a majority of the medical AI field. For example, the best paper award at the Medical Imaging with Deep Learning 2023 conference went to <a href="https://2023.midl.io/papers/s036">a paper</a> that utilized a specialized graph attention neural network to solve the narrow task of epithelial cell classification in pathology images. But I can confidently bet that a pathology foundation model (like <a href="https://www.nature.com/articles/s41591-024-02857-3">UNI</a>, <a href="https://www.nature.com/articles/s41591-024-02856-4">CONCH</a>, <a href="https://www.nature.com/articles/s41591-024-03141-0">Virchow</a>, etc.) could easily be finetuned to achieve SOTA on this narrow task.</p>
+<p>Why is this the case? Because currently most medical AI research is happening in academia which has access to limited compute and in many cases limited data. So academics spend time manually designing approaches to solve narrow tasks on their limited compute and data budget.</p>
+<p>In my opinion, this is not the right way to do impactful medical AI research.</p>
+</section>
+<section id="truly-multimodal-ai-is-the-future-of-medicine" class="level2">
+<h2 class="anchored" data-anchor-id="truly-multimodal-ai-is-the-future-of-medicine">Truly multimodal AI is the future of medicine</h2>
+<p>From GPT-4o to Gemini to Grok-3, it is clear that multimodal AI is the future of foundation models, but it will also be the future of medical AI.</p>
+<p>People have started developing multimodal foundation models for medicine: <a href="https://arxiv.org/abs/2306.00890">LLaVA-Med</a> (Microsoft), <a href="https://www.nature.com/articles/s41586-024-07618-3">PathChat</a> (Harvard), <a href="https://arxiv.org/abs/2401.12208">CheXagent</a> (Stanford, I was a co-author). However, most of these approaches are very limiting, basically just trying to make a multimodal chatbot for medicine. There are other sorts of multimodal models being developed like <a href="https://arxiv.org/abs/2303.00915">BiomedCLIP</a> (Microsoft) and <a href="https://www.nature.com/articles/s41551-024-01246-y">RoentGen</a> (Stanford+Stability AI, which I was also a co-author) but these are still limited to image-text modalities.</p>
+<p>There is more to medicine than medical images and clinical notes! There are lab tests, there are 3D images like CTs, there are time series data like ECG, there are even video data like surgical videos.</p>
+<p>All these modalities should be processed together in order to provide more holistic care support! This is what would make a truly multimodal AI system for medicine. So far, very little research is addressing this. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</section>
+<section id="biomedical-foundation-models-can-enable-new-possibilities-in-medicine-and-research" class="level2">
+<h2 class="anchored" data-anchor-id="biomedical-foundation-models-can-enable-new-possibilities-in-medicine-and-research">Biomedical foundation models can enable new possibilities in medicine and research</h2>
+<p>When people think about the potential of medical foundation models, the ability to alleviate the burden on doctors and nurses is probably what comes to mind for most. But I think people are not realizing that there are many other unique opportunities that medical foundation models can provide.</p>
+<p>For example, narrow medical AI systems have already shown the potential to detect biomarkers in seemingly unrelated places. Dr.&nbsp;Eric Topol terms this “<a href="https://erictopol.substack.com/p/opportunistic-ai-for-medical-scans">op)portunistic AI</a>”. For example, AI is able to detect biomarkers for heart calcium score, diabetes, kidney disease, etc. from just a retinal scan. AI is able to detect tumor gene expression (which typically requires molecular testing) directly from the tissue slide. This is all additional information that doctors typically don’t get in this way and it is worth wondering how it may affect the practice of medicine.</p>
+<p>But none of these studies I cite use foundation models or incorporate multiple modalities. Our hypothesis is this: <strong>By using complementary information from different modalities, a multimodal medical foundation model will be able to pull out completely novel and highly predictive biomarkers for a variety of diseases that doctors would have previously been unable to identify.</strong></p>
+<p>Then there is the question of how does the AI even pick up on these features in the first place? Understanding this may lead to novel insights about disease. Let me give a hypothetical example.</p>
+<p>Let’s say we give an AI model an image of a cancer tissue slide and it is able to predict that this tumor has a specific gene mutation. Maybe the AI picked up on how this gene mutation leads to a different morphology of the cancer cells or a different cell organization in the tumor microenvironment. If we could use AI interpretability approaches to determine the reason underlying its predictions, this could provide useful insight to understanding how this mutation affects the progression of this cancer.</p>
+<p>As far as I am aware, while there is a large body of AI interpretability work applied to standard medical classification tasks, there has been limited work studying how AI is picking up on novel features like described above.</p>
+<p>However, there has recently been an explosion of (mechanistic) interpretability research for foundation models. The most promising direction currently has been <a href="https://transformer-circuits.pub/2024/scaling-monosemanticity/">sparse autoencoders</a>. It wouldn’t be surprising to me that it may be possible to apply these novel interpretability approaches to medical foundation models to derive novel insights about biomedicine.</p>
+<p>So the real potential of biomedical foundation models is not about replacing or augmenting the practice of medicine, but rather enhancing it in novel ways and even generating novel biomedical knowledge.</p>
+</section>
+<section id="ai-must-be-ready-to-enable-tomorrows-healthcare" class="level2">
+<h2 class="anchored" data-anchor-id="ai-must-be-ready-to-enable-tomorrows-healthcare">AI must be ready to enable tomorrow’s healthcare</h2>
+<p>Healthcare right now looks a little something like this:</p>
+<ol type="1">
+<li><p>You don’t feel well</p></li>
+<li><p>You go to a doctor</p></li>
+<li><p>The doctor measures you in a pretty standard set of ways, starting out with simple point measurements of vital signs, going to blood tests, medical imaging, etc.</p></li>
+<li><p>Based on all the recorded information the doctor makes a diagnosis and suggests treatment</p></li>
+</ol>
+<p>However, we can see this approach to healthcare is very reactive, not proactive. But <strong>healthcare shouldn’t be sick-care</strong>! We can expect this to change in the future, though, and AI can enable this.</p>
+<p>In order to enable a proactive approach to healthcare, we need to measure a patient’s baseline health and how it changes over time. For this reason, continuous monitoring of patient health will be crucial. We already see people using wearable sensors and continuous monitors to track vital signs like heart rate, pulse oxygen levels, glucose levels, etc. over time. In the future we may expect to see new wearables that continuously track even more biomarkers, or even portable medical imaging tools that patients use to scan themselves everyday (akin to a <a href="https://en.wikipedia.org/wiki/Medical_tricorder">Tricorder</a>).</p>
+<p>Foundation models will be necessary to identify patterns and features in extremely rich, continuously recorded, high-resolution, multi-modality patient data.</p>
+</section>
+<section id="what-do-we-need" class="level2">
+<h2 class="anchored" data-anchor-id="what-do-we-need">What do we need?</h2>
+<p>Summarizing all of the above, we believe this is what’s needed to advance the field of medical AI:</p>
+<ul>
+<li><p>Build truly multimodal, highly flexible, medical-specific models</p></li>
+<li><p>This should be done open-source for maximum transparency and flexibility</p></li>
+<li><p>Such models will enhance how clinicians provide care and also enable tomorrow’s healthcare</p></li>
+</ul>
+<p><strong>In order to achieve this, we believe we need a dedicated research lab company: a DeepSeek for medical AI.</strong></p>
+<p>Just like any AI research lab, we need the following three components:</p>
+<ol type="1">
+<li><p>Data - this comes from strong partnerships with healthcare systems, medical practices, pharma companies, etc. Ideally training data comes from a variety of sources with lots of patients from different demographics: we need both scale and diversity</p></li>
+<li><p>Compute - Training these models requires significant compute resources. This may even require more compute than typical training of an LLM or diffusion model, because medical data poses its own challenges. For example, pathology images are gigapixels in size, while CT data is three-dimensional.</p></li>
+<li><p>Talent - We need diverse talent working on this:</p>
+<ul>
+<li>Data engineers to wrangle the medical datasets</li>
+<li>Research engineers that can manage large-scale foundation model training</li>
+<li>Clinicians to help scope research and evaluate models</li>
+</ul></li>
+</ol>
+<p>So far, there are no entities that have such an environment:</p>
+<ol type="1">
+<li><p>Academia often has relevant domain (clinical) expertise and useful academic medical datasets but little large-scale AI training expertise and very little compute</p></li>
+<li><p>Industry can have large-scale AI training expertise and plenty of compute, but little domain expertise and medical data</p></li>
+</ol>
+<p>Our proposed new research lab company aims to be in-between an academic lab and a standard AI company, focusing on open research and development while also translating and deploying our developed foundation models into real-world clinical applications.</p>
+</section>
+<section id="introducing-sophont" class="level2">
+<h2 class="anchored" data-anchor-id="introducing-sophont">Introducing Sophont</h2>
+<p>We are founding Sophont, a new company focused on building <strong>open multimodal medical foundation models</strong> in order to build towards what we believe is the future of healthcare. We are an AI-first company building for medicine. Our goal is to become the de facto leader of impactful medical AI research and deployment.</p>
+<p>We are not a company doing research for the sake of research. We also need to be translating that research into the hands of the people, making an actual direct impact. We are a research and translation company. We believe foundation models will become an important layer of infrastructure throughout healthcare and the life sciences, and we will help make that happen.</p>
+<p>My co-founder, <a href="https://x.com/humanscotti">Paul Scotti, Ph.D.</a>, has over 10 years of experience in computational neuroscience, was previously a postdoc at Princeton University and Head of NeuroAI at Stability AI, and led the team behind our <a href="https://medarc-ai.github.io/mindeye/">MindEye</a> publications that achieve state-of-the-art reconstructions of seen images from brain activity. <a href="https://x.com/iScienceLuvr">I</a> have over 5 years of experience applying generative AI to medicine and was previously Research Director at Stability AI and CEO of <a href="https://medarc.ai">MedARC</a>. We’ve collaborated with many of the leading academic groups in medical AI, including Stanford, Princeton, Yale, UC Davis, Univ. of Minnesota, and more.</p>
+<p>We are strong believers in the importance and usefulness of both open-source and open, transparent research, as evidenced by our previous experiences at MedARC. During our time at MedARC, we were able to scale up research projects to many external collaborators from around the world to make significant advances in neuroAI research. We hope to continue this science-in-the-open approach to research at Sophont to build towards the future of healthcare.</p>
+<p>If you are interested in building and collaborating in this space, whether you’re in generative AI, hospital work, life science R&amp;D, pharma, etc., feel free to reach out at: contact@sophontai.com</p>
+<p>To stay updated about Sophont, follow our company on <a href="https://twitter.com/SophontAI">Twitter</a> and <a href="https://www.linkedin.com/company/sophont/">LinkedIn</a>.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>As a side note, I will point out that my vision is somewhat similar to the one laid out by Moor et al.&nbsp;2023 which I also agree with heavily. They propose a medical AI that has the following characteristics: (1) the ability to carry out tasks that are dynamically specified (ex: with in-context learning), (2) the ability to support flexible combinations of data modalities, (3) formally represent medical domain knowledge and leverage it to carry out advanced medical reasoning.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-abraham2025" class="csl-entry quarto-appendix-citeas" role="listitem">
+Tanishq Mathew Abraham, and Paul Scotti. 2025. <span>“The Medical AI
+Manifesto - Introducing Sophont.”</span> March 31, 2025. <a href="https://www.tanishq.ai/blog/sophont.html">https://www.tanishq.ai/blog/sophont.html</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/www\.tanishq\.ai\/blog");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="tmabraham/blog" issue-term="title" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
